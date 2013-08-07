@@ -1,6 +1,8 @@
 package turbulenz;
 
 import turbulenz.GraphicsDevice;
+import turbulenz.Texture;
+import turbulenz.VMath;
 
 typedef ScaleMode = String;
 typedef SortMode = String;
@@ -10,11 +12,9 @@ typedef BlendMode = String;
 typedef Draw2DSprite = Dynamic;
 typedef RenderTarget = Dynamic;
 typedef Technique = Dynamic;
-typedef Texture = Dynamic;
-typedef VArray = Array<Float>;
-typedef Rectangle = VArray; // use VArray (and define it)
-typedef Point = VArray; // use VArray (and define it)
-typedef RGBA = VArray; // use VArray (and define it)
+typedef Rectangle = VArray;
+typedef Point = VArray;
+typedef RGBA = VArray;
 
 @:native("Draw2D")
 @:publicFields
