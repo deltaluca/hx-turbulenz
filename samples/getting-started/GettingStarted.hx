@@ -29,7 +29,7 @@ class GettingStarted {
                 graphicsDevice.clear(bgColor, 1.0);
 
                 draw2D.begin();
-                draw2D.draw(drawObject);
+                draw2D.draw(cast drawObject);
                 draw2D.end();
 
                 graphicsDevice.endFrame();

@@ -23,3 +23,7 @@ abstract VArray(Dynamic) {
         return untyped __js__('_this[i] = x');
     }
 }
+
+typedef Rectangle = VArray;
+typedef Point = VArray;
+typedef RGBA = VArray;

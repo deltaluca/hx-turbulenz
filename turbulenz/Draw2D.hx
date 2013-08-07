@@ -2,6 +2,8 @@ package turbulenz;
 
 import turbulenz.GraphicsDevice;
 import turbulenz.Texture;
+import turbulenz.RenderTarget;
+import turbulenz.Technique;
 import turbulenz.VMath;
 
 typedef ScaleMode = String;
@@ -10,11 +12,6 @@ typedef BlendMode = String;
 
 // TODO
 typedef Draw2DSprite = Dynamic;
-typedef RenderTarget = Dynamic;
-typedef Technique = Dynamic;
-typedef Rectangle = VArray;
-typedef Point = VArray;
-typedef RGBA = VArray;
 
 @:native("Draw2D")
 @:publicFields
@@ -52,21 +49,21 @@ extern class Draw2D {
     function viewportUnmap(x:Float, y:Float, ?point:Point):Point;
     function viewportClamp(point:Point):Point;
     function draw(params:{
-        ?texture:Texture,
-        ?sourceRectangle:Rectangle,
-        destinationRectangle:Rectangle,
-        ?rotation:Float,
-        ?origin:Point,
-        ?color:RGBA
+        ?texture: Texture,
+        ?sourceRectangle: Rectangle,
+        destinationRectangle: Rectangle,
+        ?rotation: Float,
+        ?origin: Point,
+        ?color: RGBA
     }):Void;
     function drawSprite(sprite:Draw2DSprite):Void;
     function drawRaw(?texture:Texture, buffer:VArray, ?count:Int, ?offset:Int):Void;
     function bufferSprite(buffer:VArray, sprite:Draw2DSprite, index:Int):Void;
     function createRenderTarget(params:{
-        ?name:String,
-        ?backBuffer:Bool,
-        ?width:Int,
-        ?height:Int
+        ?name: String,
+        ?backBuffer: Bool,
+        ?width: Int,
+        ?height: Int
     }):Int;
     function getRenderTarget(renderTargetIndex:Int):Null<RenderTarget>;
     function getRenderTargetTexture(renderTargetIndex:Int):Null<Texture>;

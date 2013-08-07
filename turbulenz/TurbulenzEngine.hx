@@ -27,15 +27,15 @@ extern class TurbulenzEngine {
     static var canvas:Null<Canvas>;
 
     static function createGraphicsDevice(params:{
-        ?vsync:Bool,
-        ?multisample:Int
+        ?vsync: Bool,
+        ?multisample: Int
     }):GraphicsDevice;
     static function getGraphicsDevice():Null<GraphicsDevice>;
     static function createPhysicsDevice(params:{}):PhysicsDevice;
     static function getPhysicsDevice():Null<PhysicsDevice>;
     static function createSoundDevice(params:{
-        ?deviceSpecifier:String,
-        ?linearDistance:Bool
+        ?deviceSpecifier: String,
+        ?linearDistance: Bool
     }):SoundDevice;
     static function getSoundDevice():Null<SoundDevice>;
     static function createNetworkDevice(params:{}):NetworkDevice;
@@ -55,19 +55,19 @@ extern class TurbulenzEngine {
     static function clearInterval(intervalID:Int):Void;
     static function flush():Void;
     static function getSystemInfo():{
-        cpuDescription:String,
-        cpuVendor:String,
-        numPhysicalCores:Int,
-        numLogicalCores:Int,
-        ramInMegabytes:Float,
-        frequencyInMegaHZ:Float,
-        architecture:String,
-        osName:String,
-        osVersionMajor:String,
-        osVersionMinor:String,
-        osVersionBuild:String,
-        platformProfile:String,
-        userLocale:String
+        cpuDescription: String,
+        cpuVendor: String,
+        numPhysicalCores: Int,
+        numLogicalCores: Int,
+        ramInMegabytes: Float,
+        frequencyInMegaHZ: Float,
+        architecture: String,
+        osName: String,
+        osVersionMajor: String,
+        osVersionMinor: String,
+        osVersionBuild: String,
+        platformProfile: String,
+        userLocale: String
     };
     static function getObjectStats():Dynamic<{totalCount:Int}>;
     static function enableProfiling(enable:Bool):Void;
