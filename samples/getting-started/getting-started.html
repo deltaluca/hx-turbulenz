@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Turbulenz - Getting Started Guide - API Example</title>
+    <!-- Turbulenz includes go here -->
+    <script src="jslib/debug.js"></script>
+    <script src="jslib/webgl/turbulenzengine.js"></script>
+    <script src="jslib/webgl/graphicsdevice.js"></script>
+    <script src="jslib/draw2d.js"></script>
+</head>
+<body>
+    <canvas id="canvas" width="640px" height="480px"/>
+    <script>
+        TurbulenzEngine = WebGLTurbulenzEngine.create({
+            "canvas": document.getElementById("canvas")
+        });
+    </script>
+    <script src="getting-started.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+    "name": "turbulenz",
+    "url": "https://github.com/turbulenz/turbulenz_engine",
+    "license": "MIT",
+    "tags": ["game", "js"],
+    "description": "Modular 3D and 2D game framework for making HTML5 powered games for browsers and mobile devices. http://turbulenz.com",
+    "version": "0.1.0",
+    "releasenote": "[]",
+    "contributors": ["deltaluca"]
+}
