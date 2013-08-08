@@ -5,17 +5,17 @@ import turbulenz.Texture;
 import turbulenz.RenderTarget;
 import turbulenz.Technique;
 import turbulenz.VMath;
+import turbulenz.Draw2DSprite;
 
 typedef ScaleMode = String;
 typedef SortMode = String;
 typedef BlendMode = String;
 
-// TODO
-typedef Draw2DSprite = Dynamic;
-
 @:native("Draw2D")
 @:publicFields
 extern class Draw2D {
+    static function __init__():Void turbulenz.TZJS.require("draw2d");
+
     static function create(params:{
         graphicsDevice: GraphicsDevice,
         ?blendModes: Dynamic<Technique>,

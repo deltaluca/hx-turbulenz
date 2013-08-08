@@ -2,6 +2,7 @@ package;
 
 import turbulenz.TurbulenzEngine;
 import turbulenz.Draw2D;
+import turbulenz.Draw2DSprite;
 
 class GettingStarted {
     static function main() {
@@ -22,14 +23,37 @@ class GettingStarted {
             destinationRectangle: rectangle
         };
 
+        var sprite = Draw2DSprite.create({
+            width: 100,
+            height: 100,
+            x: graphicsDevice.width/2,
+            y: graphicsDevice.height/2,
+            color: [1.0, 1.0, 1.0, 1.0],
+            rotation: Math.PI/4
+        });
+
+        var texture = graphicsDevice.createTexture({
+            src: "assets/textures/particle_spark.png",
+            mipmaps: true,
+            onload: function (texture, ?_) {
+                if (texture != null) {
+                    sprite.setTexture(texture);
+                    sprite.setTextureRectangle([0, 0, texture.width, texture.height]);
+                }
+            }
+        });
+
         function update() {
             if (graphicsDevice.beginFrame()) {
                 b += 0.01;
                 bgColor[2] = b % 1.0;
                 graphicsDevice.clear(bgColor, 1.0);
 
+                sprite.rotation += Math.PI/32;
+
                 draw2D.begin();
                 draw2D.draw(cast drawObject);
+                draw2D.drawSprite(sprite);
                 draw2D.end();
 
                 graphicsDevice.endFrame();

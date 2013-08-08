@@ -1,6 +1,0 @@
--main GettingStarted
--js getting-started.js
--lib turbulenz
--dce full
-#-cmd java -jar ~/Projects/closure-compiler.jar --js getting-started.js --js_output_file getting-started.compiled.js --formatting PRETTY_PRINT
-#-cmd mv getting-started.compiled.js getting-started.js

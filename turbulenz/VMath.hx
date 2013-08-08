@@ -27,3 +27,4 @@ abstract VArray(Dynamic) {
 typedef Rectangle = VArray;
 typedef Point = VArray;
 typedef RGBA = VArray;
+typedef Vector = VArray;
