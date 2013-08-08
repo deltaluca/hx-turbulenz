@@ -37,28 +37,28 @@ extern class Draw2D {
 
     function configure(params:{
         ?scaleMode: ScaleMode,
-        ?viewportRectangle: Rectangle
+        ?viewportRectangle: Rectangle<Float32>
     }):Void;
     function destroy():Void;
     function begin(?blendMode:BlendMode, ?sortMode:SortMode):Bool;
     function end():Bool;
     function clear(?clearColor:RGBA):Bool;
-    function getViewport(?viewport:Rectangle):Rectangle;
-    function getScreenSpaceViewport(?viewport:Rectangle):Rectangle;
-    function viewportMap(x:Float, y:Float, ?point:Point):Point;
-    function viewportUnmap(x:Float, y:Float, ?point:Point):Point;
-    function viewportClamp(point:Point):Point;
+    function getViewport(?viewport:Rectangle<Float32>):Rectangle<Float32>;
+    function getScreenSpaceViewport(?viewport:Rectangle<Float32>):Rectangle<Float32>;
+    function viewportMap(x:Float, y:Float, ?point:Point<Float32>):Point<Float32>;
+    function viewportUnmap(x:Float, y:Float, ?point:Point<Float32>):Point<Float32>;
+    function viewportClamp(point:Point<Float32>):Point<Float32>;
     function draw(params:{
         ?texture: Texture,
-        ?sourceRectangle: Rectangle,
-        destinationRectangle: Rectangle,
+        ?sourceRectangle: Rectangle<Float32>,
+        destinationRectangle: Rectangle<Float32>,
         ?rotation: Float,
-        ?origin: Point,
+        ?origin: Point<Float32>,
         ?color: RGBA
     }):Void;
     function drawSprite(sprite:Draw2DSprite):Void;
-    function drawRaw(?texture:Texture, buffer:VArray, ?count:Int, ?offset:Int):Void;
-    function bufferSprite(buffer:VArray, sprite:Draw2DSprite, index:Int):Void;
+    function drawRaw(?texture:Texture, buffer:VArray<Float32>, ?count:Int, ?offset:Int):Void;
+    function bufferSprite(buffer:VArray<Float32>, sprite:Draw2DSprite, index:Int):Void;
     function createRenderTarget(params:{
         ?name: String,
         ?backBuffer: Bool,

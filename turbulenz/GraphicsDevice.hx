@@ -124,7 +124,7 @@ extern class GraphicsDevice {
     function clear(clearColor:RGBA, ?clearDepth:Float, ?clearStencil:Float):Void;
 
     // dynamic is a reserved word in Haxe.
-    inline function createTexture(params:{
+    inline function createTexture<T>(params:{
         ?src: String,
         ?onload: Texture->?Int->Void,
         ?name: String,
@@ -136,7 +136,7 @@ extern class GraphicsDevice {
         ?cubemap: Bool,
         ?renderable: Bool,
         ?_dynamic: Bool,
-        ?data: VArray
+        ?data: VArray<T>
     }):Texture return untyped __js__("(function (params) {
         params.dynamic = params._dynamic;
         return this.createTexture(params);
@@ -162,12 +162,12 @@ extern class GraphicsDevice {
     function createSemantics(semanticValues:Array<Semantic>):Semantics;
 
     // dynamic is a reserved word in Haxe.
-    inline function createVertexBuffer(params:{
+    inline function createVertexBuffer<T>(params:{
         numVertices: Int,
         attributes: Array<VertexFormat>,
         ?_dynamic: Bool,
         ?transient: Bool,
-        ?data: VArray
+        ?data: VArray<T>
     }):VertexBuffer return untyped __js__("(function (params) {
         params.dynamic = params._dynamic;
         return this.createVertexBuffer(params);
@@ -176,12 +176,12 @@ extern class GraphicsDevice {
     function setStream(vertexBuffer:VertexBuffer, semantics:Semantics, ?offset:Int):Void;
 
     // dynamic is a reserved word in Haxe.
-    inline function createIndexBuffer(params:{
+    inline function createIndexBuffer<T>(params:{
         numVertices: Int,
         format: IndexFormat,
         ?_dynamic: Bool,
         ?transient: Bool,
-        ?data: VArray
+        ?data: VArray<T>
     }):IndexBuffer return untyped __js__("(function (params) {
         params.dynamic = params._dynamic;
         return this.createIndexBuffer(params);
@@ -217,7 +217,7 @@ extern class GraphicsDevice {
         ontextureload: Texture->Void,
         onload: Bool->Int->Void
     }):Bool;
-    function getScreenshot(?compress:Bool, ?x:Int, ?y:Int, ?width:Int, ?height:Int):VArray;
+    function getScreenshot(?compress:Bool, ?x:Int, ?y:Int, ?width:Int, ?height:Int):VArray<UInt8>;
     function isSupported(feature:Feature):Bool;
     function maxSupported(feature:Feature):Int;
     function createVideo(params:{

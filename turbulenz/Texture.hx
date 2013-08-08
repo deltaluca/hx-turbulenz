@@ -20,5 +20,5 @@ extern class Texture {
         return this.dynamic)
     ").call(this);
 
-    function setData(data:VArray):Void;
+    function setData<T>(data:VArray<T>):Void;
 }
