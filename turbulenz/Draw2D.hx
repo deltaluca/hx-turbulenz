@@ -4,7 +4,7 @@ import turbulenz.GraphicsDevice;
 import turbulenz.Texture;
 import turbulenz.RenderTarget;
 import turbulenz.Technique;
-import turbulenz.VMath;
+import turbulenz.TZArray;
 import turbulenz.Draw2DSprite;
 
 typedef ScaleMode = String;
@@ -57,8 +57,8 @@ extern class Draw2D {
         ?color: RGBA
     }):Void;
     function drawSprite(sprite:Draw2DSprite):Void;
-    function drawRaw(?texture:Texture, buffer:VArray<Float32>, ?count:Int, ?offset:Int):Void;
-    function bufferSprite(buffer:VArray<Float32>, sprite:Draw2DSprite, index:Int):Void;
+    function drawRaw(?texture:Texture, buffer:TZArray<Float32>, ?count:Int, ?offset:Int):Void;
+    function bufferSprite(buffer:TZArray<Float32>, sprite:Draw2DSprite, index:Int):Void;
     function createRenderTarget(params:{
         ?name: String,
         ?backBuffer: Bool,

@@ -1,6 +1,7 @@
 package turbulenz;
 
 import turbulenz.GraphicsDevice;
+import turbulenz.MathDevice;
 
 // TODO
 typedef Canvas = Dynamic;
@@ -8,7 +9,6 @@ typedef PhysicsDevice = Dynamic;
 typedef SoundDevice = Dynamic;
 typedef NetworkDevice = Dynamic;
 typedef InputDevice = Dynamic;
-typedef MathDevice = Dynamic;
 
 @:native("TurbulenzEngine")
 @:publicFields

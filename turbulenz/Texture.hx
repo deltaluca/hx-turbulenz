@@ -1,7 +1,7 @@
 package turbulenz;
 
 import turbulenz.GraphicsDevice;
-import turbulenz.VMath;
+import turbulenz.TZArray;
 
 @:native("Texture")
 @:publicFields
@@ -20,5 +20,5 @@ extern class Texture {
         return this.dynamic)
     ").call(this);
 
-    function setData<T>(data:VArray<T>):Void;
+    function setData<T>(data:TZArray<T>):Void;
 }

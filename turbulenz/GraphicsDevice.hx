@@ -3,7 +3,12 @@ package turbulenz;
 import turbulenz.Texture;
 import turbulenz.RenderTarget;
 import turbulenz.Technique;
-import turbulenz.VMath;
+import turbulenz.TechniqueParameters;
+import turbulenz.VertexBuffer;
+import turbulenz.RenderBuffer;
+import turbulenz.Shader;
+import turbulenz.TZArray;
+import turbulenz.MathDevice;
 
 typedef Semantic = Int;
 typedef Primitive = Int;
@@ -13,17 +18,12 @@ typedef IndexFormat = Int;
 typedef Feature = String;
 
 //TODO
-typedef Shader = Dynamic;
 typedef Semantics = Dynamic;
 typedef IndexBuffer = Dynamic;
-typedef VertexBuffer = Dynamic;
 typedef OcclusionQuery = Dynamic;
 typedef Video = Dynamic;
 typedef TechniqueParameterBuffer = Dynamic;
-typedef TechniqueParameters = Dynamic;
 typedef DrawParameters = Dynamic;
-typedef VertexWriteIterator = Dynamic;
-typedef RenderBuffer = Dynamic;
 
 @:native("GraphicsDevice")
 @:publicFields
@@ -136,7 +136,7 @@ extern class GraphicsDevice {
         ?cubemap: Bool,
         ?renderable: Bool,
         ?_dynamic: Bool,
-        ?data: VArray<T>
+        ?data: TZArray<T>
     }):Texture return untyped __js__("(function (params) {
         params.dynamic = params._dynamic;
         return this.createTexture(params);
@@ -154,10 +154,7 @@ extern class GraphicsDevice {
         return this.createTechniqueParameterBuffer(params);
     })").call(this, params);
 
-    function createTechniqueParameters(params:{
-        diffuse: Texture,
-        color: RGBA
-    }):TechniqueParameters;
+    function createTechniqueParameters(params:Dynamic):TechniqueParameters;
     function setTechniqueParameters(globalTechniqueParameters:TechniqueParameters):Void;
     function createSemantics(semanticValues:Array<Semantic>):Semantics;
 
@@ -167,7 +164,7 @@ extern class GraphicsDevice {
         attributes: Array<VertexFormat>,
         ?_dynamic: Bool,
         ?transient: Bool,
-        ?data: VArray<T>
+        ?data: TZArray<T>
     }):VertexBuffer return untyped __js__("(function (params) {
         params.dynamic = params._dynamic;
         return this.createVertexBuffer(params);
@@ -181,7 +178,7 @@ extern class GraphicsDevice {
         format: IndexFormat,
         ?_dynamic: Bool,
         ?transient: Bool,
-        ?data: VArray<T>
+        ?data: TZArray<T>
     }):IndexBuffer return untyped __js__("(function (params) {
         params.dynamic = params._dynamic;
         return this.createIndexBuffer(params);
@@ -217,7 +214,7 @@ extern class GraphicsDevice {
         ontextureload: Texture->Void,
         onload: Bool->Int->Void
     }):Bool;
-    function getScreenshot(?compress:Bool, ?x:Int, ?y:Int, ?width:Int, ?height:Int):VArray<UInt8>;
+    function getScreenshot(?compress:Bool, ?x:Int, ?y:Int, ?width:Int, ?height:Int):TZArray<UInt8>;
     function isSupported(feature:Feature):Bool;
     function maxSupported(feature:Feature):Int;
     function createVideo(params:{
