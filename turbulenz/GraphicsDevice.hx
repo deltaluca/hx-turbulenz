@@ -9,6 +9,7 @@ import turbulenz.RenderBuffer;
 import turbulenz.Shader;
 import turbulenz.TZArray;
 import turbulenz.MathDevice;
+import turbulenz.Semantics;
 
 typedef Semantic = Int;
 typedef Primitive = Int;
@@ -18,7 +19,6 @@ typedef IndexFormat = Int;
 typedef Feature = String;
 
 //TODO
-typedef Semantics = Dynamic;
 typedef IndexBuffer = Dynamic;
 typedef OcclusionQuery = Dynamic;
 typedef Video = Dynamic;
@@ -142,7 +142,7 @@ extern class GraphicsDevice {
         return this.createTexture(params);
     })").call(this,params);
 
-    function createShader(shaderDefinition:String):Shader;
+    function createShader(shaderDefinition:Dynamic):Shader;
     function setTechnique(technique:Technique):Void;
 
     // dynamic is a reserved word in Haxe.

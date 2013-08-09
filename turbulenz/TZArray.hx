@@ -32,12 +32,12 @@ abstract TZArray<T>(Dynamic) {
 
     public var length(get,never):Int;
     inline function get_length()
-        return untyped __js__("(function () return this.length)").call(this);
+        return untyped __js__("(function () { return this.length; })").call(this);
 
     @:arrayAccess public inline function get(i:Int):T
-        return untyped __js__("(function (i) return this[i])").call(this, i);
+        return untyped __js__("(function (i) { return this[i]; })").call(this, i);
     @:arrayAccess public inline function set(i:Int, x:T):T
-        return untyped __js__("(function (i,x) return this[i]=x").call(this, i, x);
+        return untyped __js__("(function (i,x) { return this[i] = x; })").call(this, i, x);
 }
 
 typedef Rectangle<T> = TZArray<T>;
