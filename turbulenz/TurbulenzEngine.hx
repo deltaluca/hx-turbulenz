@@ -13,7 +13,7 @@ typedef InputDevice = Dynamic;
 @:native("TurbulenzEngine")
 @:publicFields
 extern class TurbulenzEngine {
-    static var onload:TurbulenzEngine->Void;
+    static var onload:Void->Void;
     static var onunload:Void->Void;
     static var version(default,never):String;
     static var encryptionEnabled(default,never):Null<Bool>;

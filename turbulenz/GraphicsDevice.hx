@@ -5,6 +5,7 @@ import turbulenz.RenderTarget;
 import turbulenz.Technique;
 import turbulenz.TechniqueParameters;
 import turbulenz.VertexBuffer;
+import turbulenz.IndexBuffer;
 import turbulenz.RenderBuffer;
 import turbulenz.Shader;
 import turbulenz.TZArray;
@@ -19,7 +20,6 @@ typedef IndexFormat = Int;
 typedef Feature = String;
 
 //TODO
-typedef IndexBuffer = Dynamic;
 typedef OcclusionQuery = Dynamic;
 typedef Video = Dynamic;
 typedef TechniqueParameterBuffer = Dynamic;
@@ -126,7 +126,7 @@ extern class GraphicsDevice {
     // dynamic is a reserved word in Haxe.
     inline function createTexture<T>(params:{
         ?src: String,
-        ?onload: Texture->?Int->Void,
+        ?onload: Texture->Int->Void,
         ?name: String,
         ?width: Int,
         ?height: Int,
@@ -174,7 +174,7 @@ extern class GraphicsDevice {
 
     // dynamic is a reserved word in Haxe.
     inline function createIndexBuffer<T>(params:{
-        numVertices: Int,
+        numIndices: Int,
         format: IndexFormat,
         ?_dynamic: Bool,
         ?transient: Bool,

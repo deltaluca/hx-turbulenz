@@ -1,6 +1,7 @@
 package turbulenz;
 
 import turbulenz.Texture;
+import turbulenz.TZArray;
 import turbulenz.MathDevice;
 
 @:native("Draw2DSprite")

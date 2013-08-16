@@ -5,6 +5,7 @@ import turbulenz.Texture;
 import turbulenz.RenderTarget;
 import turbulenz.Technique;
 import turbulenz.TZArray;
+import turbulenz.MathDevice;
 import turbulenz.Draw2DSprite;
 
 typedef ScaleMode = String;

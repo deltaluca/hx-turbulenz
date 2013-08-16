@@ -19,6 +19,6 @@ extern class Texture {
     inline function get__dynamic():Bool return untyped __js__("(function ()
         return this.dynamic)
     ").call(this);
-
-    function setData<T>(data:TZArray<T>):Void;
+    function destroy():Void;
+    function setData<T>(data:TZArray<T>, ?face:Int=0, ?level:Int=0, ?x:Int=0, ?y:Int=0, ?w:Int=0, ?h:Int=0):Void;
 }
