@@ -11,19 +11,17 @@ import turbulenz.Shader;
 import turbulenz.TZArray;
 import turbulenz.MathDevice;
 import turbulenz.Semantics;
+import turbulenz.OcclusionQuery;
+import turbulenz.TechniqueParameterBuffer;
+import turbulenz.DrawParameters;
+import turbulenz.Video;
 
 typedef Semantic = Int;
 typedef Primitive = Int;
 typedef VertexFormat = Int;
 typedef PixelFormat = Int;
 typedef IndexFormat = Int;
-typedef Feature = String;
-
-//TODO
-typedef OcclusionQuery = Dynamic;
-typedef Video = Dynamic;
-typedef TechniqueParameterBuffer = Dynamic;
-typedef DrawParameters = Dynamic;
+typedef GraphicsDeviceFeature = String;
 
 @:native("GraphicsDevice")
 @:publicFields
@@ -126,7 +124,7 @@ extern class GraphicsDevice {
     // dynamic is a reserved word in Haxe.
     inline function createTexture<T>(params:{
         ?src: String,
-        ?onload: Texture->Int->Void,
+        ?onload: Null<Texture>->Int->Void,
         ?name: String,
         ?width: Int,
         ?height: Int,
@@ -215,8 +213,8 @@ extern class GraphicsDevice {
         onload: Bool->Int->Void
     }):Bool;
     function getScreenshot(?compress:Bool, ?x:Int, ?y:Int, ?width:Int, ?height:Int):TZArray<UInt8>;
-    function isSupported(feature:Feature):Bool;
-    function maxSupported(feature:Feature):Int;
+    function isSupported(feature:GraphicsDeviceFeature):Bool;
+    function maxSupported(feature:GraphicsDeviceFeature):Int;
     function createVideo(params:{
         src: String,
         ?looping: Bool,

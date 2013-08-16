@@ -2,13 +2,14 @@ package turbulenz;
 
 import turbulenz.GraphicsDevice;
 import turbulenz.MathDevice;
+import turbulenz.InputDevice;
+import turbulenz.NetworkDevice;
+import turbulenz.SoundDevice;
 
-// TODO
 typedef Canvas = Dynamic;
+
+//TODO
 typedef PhysicsDevice = Dynamic;
-typedef SoundDevice = Dynamic;
-typedef NetworkDevice = Dynamic;
-typedef InputDevice = Dynamic;
 
 @:native("TurbulenzEngine")
 @:publicFields

@@ -128,6 +128,8 @@ typedef Matrix44 = TZArray<Float32>;
 @:native("MathDevice")
 @:publicFields
 extern class MathDevice {
+    var FLOAT_MAX(default,never):Float;
+
     function truncate(x:Float):Int;
     function v2Build(x:Float, y:Float, ?dst:Vector2):Vector2;
     function v2BuildZero(?dst:Vector2):Vector2;
@@ -287,13 +289,61 @@ extern class MathDevice {
                          d:Float, e:Float, f:Float,
                          g:Float, h:Float, i:Float,
                          j:Float, k:Float, l:Float, ?dst:Matrix43):Matrix43 {})
-    function m43Build(right:Vector3, up:Vector3, at:Vector3, pos:Vector3, ?dst:Matrix33):Matrix43;
+    function m43Build(right:Vector3, up:Vector3, at:Vector3, pos:Vector3, ?dst:Matrix43):Matrix43;
 
     @:overload(function (x:Float, y:Float, z:Float, ?dst:Matrix43):Matrix43 {})
     function m43BuildTranslation(t:Vector3, ?dst:Matrix43):Matrix43;
     function m43Copy(m:Matrix43, ?dst:Matrix43):Matrix43;
-    // TODO rest of m43 methods
+    function m43FromM33V3(matrix:Matrix33, vector:Vector3, ?dst:Matrix43):Matrix43;
+    function m43FromAxisRotation(vector:Vector3, scalar:Float, ?dst:Matrix43):Matrix43;
+    function m43FromQuatPos(quatPos:QuaternionPosition, ?dst:Matrix43):Matrix43;
+    function m43FromRTS(quat:Quaternion, vector:Vector3, scalar:Float, ?dst:Matrix43):Matrix43;
+    function m43FromRT(quat:Quaternion, vector:Vector3, ?dst:Matrix43):Matrix43;
+    function m43Right(matrix:Matrix43, ?dst:Vector3):Vector3;
+    function m43At(matrix:Matrix43, ?dst:Vector3):Vector3;
+    function m43Up(matrix:Matrix43, ?dst:Vector3):Vector3;
+    function m43Pos(matrix:Matrix43, ?dst:Vector3):Vector3;
+    function m43Mul(matrixA:Matrix43, matrixB:Matrix43, ?dst:Matrix43):Matrix43;
+    function m43MulTranspose(matrixA:Matrix43, matrixB:Matrix43, ?dst:Matrix43):Matrix43;
+    function m43MulM44(matrixA:Matrix43, matrixB:Matrix44, ?dst:Matrix44):Matrix44;
+    function m43Transpose(matrix:Matrix43, ?dst:Matrix34):Matrix34;
+    function m43InverseOrthonormal(matrix:Matrix43, ?dst:Matrix43):Matrix43;
+    function m43Orthnormalize(matrix:Matrix43, ?dst:Matrix43):Matrix43;
+    function m43Determinant(matrix:Matrix43):Float;
+    function m43Inverse(matrix:Matrix43, ?dst:Matrix43):Matrix43;
+    function m43Translate(matrix:Matrix43, vector:Vector3):Void;
+    function m43Scale(matrix:Matrix43, vector:Vector3, ?dst:Matrix43):Matrix43;
+    function m43Offset(matrix:Matrix43, vector:Vector3, ?dst:Matrix43):Matrix43;
+    function m43NegOffset(matrix:Matrix43, vector:Vector3, ?dst:Matrix43):Matrix43;
+    function m43InverseTransposeProjection(matrix:Matrix43, vector:Vector3, ?dst:Matrix34):Matrix34;
+    function m43TransformPoint(matrix:Matrix43, vector:Vector3, ?dst:Vector3):Vector3;
+    function m43SetRight(matrix:Matrix43, vector:Vector3):Void;
+    function m43SetUp(matrix:Matrix43, vector:Vector3):Void;
+    function m43SetAt(matrix:Matrix43, vector:Vector3):Void;
+    function m43SetPos(matrix:Matrix43, vector:Vector3):Void;
+    function m43SetAxisRotation(matrix:Matrix43, vector:Vector3, scalar:Float):Void;
     function m44BuildIdentity(?dst:Matrix44):Matrix44;
-    // TODO rest of m44 methods
+
+    @:overload(function (a:Float, b:Float, c:Float, d:Float,
+                         e:Float, f:Float, g:Float, h:Float,
+                         i:Float, j:Float, k:Float, l:Float,
+                         m:Float, n:Float, o:Float, p:Float, ?dst:Matrix44):Matrix44 {})
+    function m44Build(right:Vector4, up:Vector4, at:Vector4, pos:Vector4, ?dst:Matrix44):Matrix44;
+
+    function m44Copy(matrix:Matrix44, ?dst:Matrix44):Matrix44;
+    function m44Mul(matrixA:Matrix44, matrixB:Matrix44, ?dst:Matrix44):Matrix44;
+    function m44Inverse(matrix:Matrix44, ?dst:Matrix44):Matrix44;
+    function m44Transpose(matrix:Matrix44, ?dst:Matrix44):Matrix44;
+    function m44Transform(matrix:Matrix44, vector:Vector4, ?dst:Vector4):Vector4;
+    function m44Translate(matrix:Matrix44, vector:Vector4):Void;
+    function m44Scale(matrix:Matrix44, vector:Vector3, ?dst:Matrix44):Matrix44;
+    function m44SetRight(matrix:Matrix44, vector:Vector4):Void;
+    function m44SetUp(matrix:Matrix44, vector:Vector4):Void;
+    function m44SetAt(matrix:Matrix44, vector:Vector4):Void;
+    function m44SetPos(matrix:Matrix44, vector:Vector4):Void;
+    function m44Right(matrix:Matrix44, ?dst:Vector4):Vector4;
+    function m44Up(matrix:Matrix44, ?dst:Vector4):Vector4;
+    function m44At(matrix:Matrix44, ?dst:Vector4):Vector4;
+    function m44Pos(matrix:Matrix44, ?dst:Vector4):Vector4;
 }
 

@@ -47,6 +47,7 @@ class GettingStarted {
             if (graphicsDevice.beginFrame()) {
                 b += 0.01;
                 bgColor[2] = b % 1.0;
+                bgColor[2] = bgColor[bgColor.length - 2];
                 graphicsDevice.clear(bgColor, 1.0);
 
                 sprite.rotation += Math.PI/32;
