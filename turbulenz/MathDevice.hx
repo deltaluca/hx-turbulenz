@@ -2,6 +2,12 @@ package turbulenz;
 
 import turbulenz.util.TZArray;
 
+typedef Ray<T> = {
+    direction: T,
+    maxFactor: Float,
+    origin: T
+};
+
 abstract Vector2(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var x(get,set):Float;
     public var y(get,set):Float;

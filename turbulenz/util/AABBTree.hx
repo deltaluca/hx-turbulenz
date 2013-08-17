@@ -2,12 +2,6 @@ package turbulenz.util;
 
 import turbulenz.MathDevice;
 
-typedef AABBTreeRay = {
-    direction: Vector3,
-    maxFactor: Float,
-    origin: Vector3
-};
-
 @:native("AABBTree")
 @:publicFields
 extern class AABBTree<T> {
@@ -16,7 +10,7 @@ extern class AABBTree<T> {
     var version(default,never):Float;
 
     static function create<T>(?highQuality:Bool):AABBTree<T>;
-    static function rayTest<T,R:{factor:Float}>(trees:Array<AABBTree<T>>, ray:AABBTreeRay, callback:AABBTree<T>->T->AABBTreeRay->Float->Float->Null<R>):Null<R>;
+    static function rayTest<T,R:{factor:Float}>(trees:Array<AABBTree<T>>, ray:Ray<Vector3>, callback:AABBTree<T>->T->Ray<Vector3>->Float->Float->Null<R>):Null<R>;
 
     function add(object:T, extents:AABB):Void;
     function clear():Void;

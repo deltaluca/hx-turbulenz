@@ -2,12 +2,6 @@ package turbulenz.util;
 
 import turbulenz.MathDevice;
 
-typedef BoxTreeRay = {
-    direction: Vector3,
-    maxFactor: Float,
-    origin: Vector3
-};
-
 @:native("BoxTree")
 @:publicFields
 extern class BoxTree<T> {
@@ -16,7 +10,7 @@ extern class BoxTree<T> {
     var version(default,never):Float;
 
     static function create<T>(?highQuality:Bool):BoxTree<T>;
-    static function rayTest<T,R:{factor:Float}>(trees:Array<BoxTree<T>>, ray:BoxTreeRay, callback:BoxTree<T>->T->BoxTreeRay->Float->Float->Null<R>):Null<R>;
+    static function rayTest<T,R:{factor:Float}>(trees:Array<BoxTree<T>>, ray:Ray<Vector2>, callback:BoxTree<T>->T->Ray<Vector2>->Float->Float->Null<R>):Null<R>;
 
     function add(object:T, extents:Box):Void;
     function clear():Void;
