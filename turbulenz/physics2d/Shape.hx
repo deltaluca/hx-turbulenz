@@ -4,6 +4,8 @@ import turbulenz.MathDevice;
 import turbulenz.physics2d.Arbiter;
 import turbulenz.physics2d.Material;
 import turbulenz.physics2d.RigidBody;
+import turbulenz.util.TZArray;
+import turbulenz.util.TZJS;
 
 @:fakeEnum abstract ShapeType(String) from String to String {
     var CIRCLE = 'CIRCLE';
@@ -29,13 +31,11 @@ extern class Shape {
     var type(default,never):ShapeType;
     var userData:Dynamic;
 
-    function addEventListener(event:ShapeEventType, handler:Arbiter->Shape->Void, ?mask:Int, ?isDeterministic:Int):Void;
     function clone():Shape;
     function computeCenterOfMass(?dst:Vector2):Vector2;
     function getGroup():Int;
     function getMask():Int;
     function getMaterial():Material;
-    function removeEventListener(event:ShapeEventType, handler:Arbiter->Shape->Void, ?mask:Int):Void;
     function rotate(cwRadians:Float):Void;
     function scale(scaleX:Float, ?scaleY:Float):Void;
     function setGroup(group:Int):Void;
@@ -43,6 +43,16 @@ extern class Shape {
     function setMaterial(material:Material):Void;
     function transform(matrix:Matrix32):Void;
     function translate(translation:Vector2):Void;
+
+    // Haxe 'this' differs from JS 'this'.
+    inline function addEventListener(event:ShapeEventType, handler:Shape->Arbiter->Shape->Void, ?mask:Int, ?isDeterministic:Int):Bool return
+        untyped __js__("(function (ev,f,m,d) {
+            return this.addEventListener(ev, f, m, d);
+        })").call(this, event, TZJS.wrap2(handler), mask, isDeterministic);
+    inline function removeEventListener(event:ShapeEventType, handler:Shape->Arbiter->Shape->Void, ?mask:Int):Bool return
+        untyped __js__("(function (ev,f,m) {
+            return this.removeEventListener(ev, f, m);
+        })").call(this, event, TZJS.wrap2(handler), mask);
 }
 
 @:native("Physics2DCircle")

@@ -25,12 +25,11 @@ import turbulenz.physics2d.World;
 @:publicFields
 extern class Constraint {
     var type(default,never):ConstraintType;
-    var world(default,never):World;
+    var world(default,never):Null<World>;
     var sleeping(default,never):Bool;
     var userData:Dynamic;
     var dimension(default,never):Int;
 
-    function addEventListener(event:ConstraintEventType, handler:Void->Void):Bool;
     function configure(params:{
         ?breakUnderError: Bool,
         ?breakUnderForce: Bool,
@@ -47,9 +46,18 @@ extern class Constraint {
     function getImpulseForBody(body:RigidBody, ?dst:Vector3):Vector3;
     function isDisabled():Bool;
     function isEnabled():Bool;
-    function removeEventListener(event:ConstraintEventType, handler:Void->Void):Bool;
     function sleep():Void;
     function wake():Void;
+
+    // Haxe 'this' differs from JS 'this'.
+    inline function addEventListener(event:ConstraintEventType, handler:Constraint->Void):Bool return
+        untyped __js__("(function (ev,f) {
+            return this.addEventListener(ev, f);
+        })").call(this, event, TZJS.wrap0(handler));
+    inline function removeEventListener(event:ConstraintEventType, handler:Constraint->Void):Bool return
+        untyped __js__("(function (ev,f) {
+            return this.removeEventListener(ev, f);
+        })").call(this, event, TZJS.wrap0(handler));
 }
 
 @:native("Physics2DAngleConstraint")

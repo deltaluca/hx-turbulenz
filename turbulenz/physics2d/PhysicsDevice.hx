@@ -14,7 +14,7 @@ import turbulenz.util.TZArray;
 // TODO
 typedef DebugDraw = Dynamic;
 
-typedef Physics2DBroadphase = Broadphase<Box, Shape>;
+typedef Physics2DBroadphase = Broadphase<Shape, Box>;
 
 @:fakeEnum abstract RigidBodyType(String) from String to String {
     var _dynamic = 'dynamic';
@@ -59,7 +59,7 @@ extern class PhysicsDevice {
         ?ratio: Float,
         ?upperBound: Float
     }):AngleConstraint;
-    function createBoxTreePhysics2DBroadphase():Physics2DBroadphase;
+    function createBoxTreeBroadphase<T>():Broadphase<T, Box>;
     function createBoxVertices(width:Float, height:Float):Array<Vector2>;
     function createCircleShape(params:{
         > CreationShapeParameters,
@@ -157,7 +157,7 @@ extern class PhysicsDevice {
         ?userData: Dynamic,
         ?velocity: Vector2,
     }):RigidBody;
-    function createSweepAndPrunePhysics2DBroadphase():Physics2DBroadphase;
+    function createSweepAndPrunePhysics2DBroadphase<T>():Broadphase<T, Box>;
     function createWeldConstraint(params:{
         > CreationConstraintParameters,
         ?anchorA: Vector2,
