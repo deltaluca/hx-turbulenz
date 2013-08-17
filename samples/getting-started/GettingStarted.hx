@@ -1,8 +1,8 @@
 package;
 
 import turbulenz.TurbulenzEngine;
-import turbulenz.Draw2D;
-import turbulenz.Draw2DSprite;
+import turbulenz.graphics.draw2d.Draw2D;
+import turbulenz.graphics.draw2d.Draw2DSprite;
 
 class GettingStarted {
     static function main() {

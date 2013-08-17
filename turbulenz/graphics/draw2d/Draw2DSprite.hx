@@ -1,4 +1,4 @@
-package turbulenz.draw2d;
+package turbulenz.graphics.draw2d;
 
 import turbulenz.graphics.Texture;
 import turbulenz.util.TZArray;

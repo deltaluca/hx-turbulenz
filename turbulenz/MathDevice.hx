@@ -148,7 +148,7 @@ abstract AABB(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
         return 'aabb($xMin,$yMin,$zMin, $xMax,$yMax,$zMax)';
 }
 
-abstract RGBA(Vector4) from Vector4 to Vector4 {
+abstract RGBA(Vector4) from Vector4 to Vector4 from TZArray<Float32> to TZArray<Float32> {
     public var r(get,set):Float;
     public var g(get,set):Float;
     public var b(get,set):Float;
