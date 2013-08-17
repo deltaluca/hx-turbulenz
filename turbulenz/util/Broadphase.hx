@@ -1,26 +1,18 @@
 package turbulenz.util;
 
-// technically an interface, but requires wrapping of methods
-// so has to be declared an extern class. yay
+//
+// Any class implementing Broadphase should ensure that callbacks
+// are called via JS Function.prototype.call with thisObject as 'this' parameter to
+// function correctly with existing JS code including Turbulenz engine itself.
+//
 @:publicFields
-extern class Broadphase<DataT, BoundsT> {
+interface Broadphase<DataT, BoundsT> {
+    function clear<T>(?callback:BroadphaseHandle<DataT>->Void, ?thisObject:T):Void;
     function insert(data:DataT, bounds:BoundsT, isStatic:Bool):BroadphaseHandle<DataT>;
-    function update(handle:BroadphaseHandle<DataT>, bounds:BoundsT, isStatic:Bool):Void;
+    function perform<T>(callback:BroadphaseHandle<DataT>->BroadphaseHandle<DataT>->Void, ?thisObject:T):Void;
     function remove(handle:BroadphaseHandle<DataT>):Void;
-
-    // Haxe 'this' differs from JS 'this'
-    inline function clear<T>(?callback:T->BroadphaseHandle<DataT>->Void, ?thisObject:T):Void
-        untyped __js__("(function (c,t) {
-            this.clear(c,t);
-        })").call(this, if (callback == null) null else TZJS.wrap1(callback), thisObject);
-    inline function perform<T>(callback:T->BroadphaseHandle<DataT>->BroadphaseHandle<DataT>->Void, ?thisObject:T):Void
-        untyped __js__("(function (c,t) {
-            this.perform(c,t);
-        })").call(this, TZJS.wrap2(callback), thisObject);
-    inline function sample<T>(bounds:BoundsT, callback:T->BroadphaseHandle<DataT>->BoundsT->Void, ?thisObject:T):Void
-        untyped __js__("(function (b,c,t) {
-            this.sample(b,c,t);
-        })").call(this, bounds, TZJS.wrap2(callback), thisObject);
+    function sample<T>(bounds:BoundsT, callback:BroadphaseHandle<DataT>->BoundsT->Void, ?thisObject:T):Void;
+    function update(handle:BroadphaseHandle<DataT>, bounds:BoundsT, isStatic:Bool):Void;
 }
 
 // Structual type. Matches JS API better.
