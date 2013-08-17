@@ -9,7 +9,7 @@ typedef SoundFilter = Dynamic;
 typedef SoundEffect = Dynamic;
 typedef SoundEffectSlot = Dynamic;
 
-@:fakeEnum abstract SoundDeviceFeature(String) {
+@:fakeEnum abstract SoundDeviceFeature(String) from String to String {
     var FILEFORMAT_OGG = 'FILEFORMAT_OGG';
     var FILEFORMAT_MP3 = 'FILEFORMAT_MP3';
     var FILEFORMAT_WAV = 'FILEFORMAT_WAV';

@@ -5,11 +5,9 @@ import turbulenz.MathDevice;
 import turbulenz.InputDevice;
 import turbulenz.NetworkDevice;
 import turbulenz.SoundDevice;
+import turbulenz.PhysicsDevice;
 
 typedef Canvas = Dynamic;
-
-//TODO
-typedef PhysicsDevice = Dynamic;
 
 @:native("TurbulenzEngine")
 @:publicFields
