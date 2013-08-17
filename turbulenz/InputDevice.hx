@@ -3,31 +3,51 @@ package turbulenz;
 typedef KeyCode = Int;
 typedef KeyCodes = {
     A:KeyCode,
+    APOSTROPHE:KeyCode,
+    BACKSPACE:KeyCode,
     B:KeyCode,
+    CAPS_LOCK:KeyCode,
     C:KeyCode,
+    COMMA:KeyCode,
+    DELETE:KeyCode,
     D:KeyCode,
+    DOWN:KeyCode,
     E:KeyCode,
+    END:KeyCode,
+    EQUALS:KeyCode,
+    ESCAPE:KeyCode,
+    F10:KeyCode,
+    F11:KeyCode,
+    F12:KeyCode,
+    F1:KeyCode,
+    F2:KeyCode,
+    F3:KeyCode,
+    F4:KeyCode,
+    F5:KeyCode,
+    F6:KeyCode,
+    F7:KeyCode,
+    F8:KeyCode,
+    F9:KeyCode,
     F:KeyCode,
     G:KeyCode,
+    GRAVE:KeyCode,
     H:KeyCode,
+    HOME:KeyCode,
     I:KeyCode,
+    INSERT:KeyCode,
     J:KeyCode,
     K:KeyCode,
+    LEFT_ALT:KeyCode,
+    LEFT_BRACKET:KeyCode,
+    LEFT_CONTROL:KeyCode,
+    LEFT:KeyCode,
+    LEFT_OPTION:KeyCode,
+    LEFT_SHIFT:KeyCode,
+    LEFT_WIN:KeyCode,
     L:KeyCode,
+    MINUS:KeyCode,
     M:KeyCode,
     N:KeyCode,
-    O:KeyCode,
-    P:KeyCode,
-    Q:KeyCode,
-    R:KeyCode,
-    S:KeyCode,
-    T:KeyCode,
-    U:KeyCode,
-    V:KeyCode,
-    W:KeyCode,
-    X:KeyCode,
-    Y:KeyCode,
-    Z:KeyCode,
     NUMBER_0:KeyCode,
     NUMBER_1:KeyCode,
     NUMBER_2:KeyCode,
@@ -38,42 +58,6 @@ typedef KeyCodes = {
     NUMBER_7:KeyCode,
     NUMBER_8:KeyCode,
     NUMBER_9:KeyCode,
-    LEFT:KeyCode,
-    RIGHT:KeyCode,
-    UP:KeyCode,
-    DOWN:KeyCode,
-    LEFT_SHIFT:KeyCode,
-    RIGHT_SHIFT:KeyCode,
-    LEFT_CONTROL:KeyCode,
-    RIGHT_CONTROL:KeyCode,
-    LEFT_ALT:KeyCode,
-    ESCAPE:KeyCode,
-    TAB:KeyCode,
-    SPACE:KeyCode,
-    BACKSPACE:KeyCode,
-    RETURN:KeyCode,
-    GRAVE:KeyCode,
-    MINUS:KeyCode,
-    EQUALS:KeyCode,
-    LEFT_BRACKET:KeyCode,
-    RIGHT_BRACKET:KeyCode,
-    SEMI_COLON:KeyCode,
-    APOSTROPHE:KeyCode,
-    COMMA:KeyCode,
-    PERIOD:KeyCode,
-    RIGHT_ALT:KeyCode,
-    F1:KeyCode,
-    F2:KeyCode,
-    F3:KeyCode,
-    F4:KeyCode,
-    F5:KeyCode,
-    F6:KeyCode,
-    F7:KeyCode,
-    F8:KeyCode,
-    F9:KeyCode,
-    F10:KeyCode,
-    F11:KeyCode,
-    F12:KeyCode,
     NUMPAD_0:KeyCode,
     NUMPAD_1:KeyCode,
     NUMPAD_2:KeyCode,
@@ -84,22 +68,38 @@ typedef KeyCodes = {
     NUMPAD_7:KeyCode,
     NUMPAD_8:KeyCode,
     NUMPAD_9:KeyCode,
-    NUMPAD_ENTER:KeyCode,
-    NUMPAD_DIVIDE:KeyCode,
-    NUMPAD_MULTIPLY:KeyCode,
     NUMPAD_ADD:KeyCode,
+    NUMPAD_DIVIDE:KeyCode,
+    NUMPAD_ENTER:KeyCode,
+    NUMPAD_MULTIPLY:KeyCode,
     NUMPAD_SUBTRACT:KeyCode,
-    LEFT_WIN:KeyCode,
-    RIGHT_WIN:KeyCode,
-    LEFT_OPTION:KeyCode,
-    RIGHT_OPTION:KeyCode,
-    CAPS_LOCK:KeyCode,
-    INSERT:KeyCode,
-    DELETE:KeyCode,
-    HOME:KeyCode,
-    END:KeyCode,
+    O:KeyCode,
+    PAGE_DOWN:KeyCode,
     PAGE_UP:KeyCode,
-    PAGE_DOWN:KeyCode
+    PERIOD:KeyCode,
+    P:KeyCode,
+    Q:KeyCode,
+    RETURN:KeyCode,
+    RIGHT_ALT:KeyCode,
+    RIGHT_BRACKET:KeyCode,
+    RIGHT_CONTROL:KeyCode,
+    RIGHT:KeyCode,
+    RIGHT_OPTION:KeyCode,
+    RIGHT_SHIFT:KeyCode,
+    RIGHT_WIN:KeyCode,
+    R:KeyCode,
+    SEMI_COLON:KeyCode,
+    S:KeyCode,
+    SPACE:KeyCode,
+    TAB:KeyCode,
+    T:KeyCode,
+    U:KeyCode,
+    UP:KeyCode,
+    V:KeyCode,
+    W:KeyCode,
+    X:KeyCode,
+    Y:KeyCode,
+    Z:KeyCode
 };
 
 typedef MouseCode = Int;
@@ -111,49 +111,49 @@ typedef MouseCodes = {
 
 typedef PadCode = Int;
 typedef PadCodes = {
-    UP:PadCode,
-    LEFT:PadCode,
-    DOWN:PadCode,
-    RIGHT:PadCode,
     A:PadCode,
+    BACK:PadCode,
     B:PadCode,
-    X:PadCode,
-    Y:PadCode,
-    LEFT_TRIGGER:PadCode,
-    RIGHT_TRIGGER:PadCode,
+    DOWN:PadCode,
+    LEFT:PadCode,
     LEFT_SHOULDER:PadCode,
-    RIGHT_SHOULDER:PadCode,
     LEFT_THUMB:PadCode,
     LEFT_THUMB_X:PadCode,
     LEFT_THUMB_Y:PadCode,
+    LEFT_TRIGGER:PadCode,
+    RIGHT:PadCode,
+    RIGHT_SHOULDER:PadCode,
     RIGHT_THUMB:PadCode,
     RIGHT_THUMB_X:PadCode,
     RIGHT_THUMB_Y:PadCode,
+    RIGHT_TRIGGER:PadCode,
     START:PadCode,
-    BACK:PadCode
+    UP:PadCode,
+    X:PadCode,
+    Y:PadCode
 };
 
 @:fakeEnum abstract InputDeviceEvent(String) from String to String {
+    var blur = 'blur';
+    var focus = 'focus';
     var keydown = 'keydown';
     var keyup = 'keyup';
     var mousedown = 'mousedown';
-    var mouseup = 'mouseup';
-    var mousewheel = 'mousewheel';
-    var mouseover = 'mouseover';
-    var mousemove = 'mousemove';
     var mouseenter = 'mouseenter';
     var mouseleave = 'mouseleave';
+    var mouselocklost = 'mouselocklost';
+    var mousemove = 'mousemove';
+    var mouseover = 'mouseover';
+    var mouseup = 'mouseup';
+    var mousewheel = 'mousewheel';
     var paddown = 'paddown';
     var padup = 'padup';
-    var focus = 'focus';
-    var blur = 'blur';
-    var mouselocklost = 'mouselocklost';
-    var touchstart = 'touchstart';
+    var touchcancel = 'touchcancel';
     var touchend = 'touchend';
-    var touchmove = 'touchmove';
     var touchenter = 'touchenter';
     var touchleave = 'touchleave';
-    var touchcancel = 'touchcancel';
+    var touchmove = 'touchmove';
+    var touchstart = 'touchstart';
 }
 
 @:fakeEnum abstract Feature(String) from String to String {
@@ -167,15 +167,15 @@ extern class InputDevice {
     var mouseCodes(default,never):MouseCodes;
     var padCodes(default,never):PadCodes;
 
-    function update():Void;
     function addEventListener(eventType:InputDeviceEvent, eventListener:Dynamic):Void;
-    function removeEventListener(eventType:InputDeviceEvent, eventListener:Dynamic):Void;
-    function lockMouse():Bool;
-    function isLocked():Bool;
-    function hideMouse():Bool;
-    function showMouse():Bool;
-    function isHidden():Bool;
-    function isFocused():Bool;
     function convertToUnicode(keyCodes:Array<KeyCode>):Dynamic;
+    function hideMouse():Bool;
+    function isFocused():Bool;
+    function isHidden():Bool;
+    function isLocked():Bool;
     function isSupported(feature:Feature):Bool;
+    function lockMouse():Bool;
+    function removeEventListener(eventType:InputDeviceEvent, eventListener:Dynamic):Void;
+    function showMouse():Bool;
+    function update():Void;
 }

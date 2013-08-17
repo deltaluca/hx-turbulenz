@@ -1,11 +1,11 @@
 package turbulenz;
 
-import turbulenz.GraphicsDevice;
+import turbulenz.graphics.GraphicsDevice;
 import turbulenz.MathDevice;
 import turbulenz.InputDevice;
-import turbulenz.NetworkDevice;
-import turbulenz.SoundDevice;
-import turbulenz.PhysicsDevice;
+import turbulenz.net.NetworkDevice;
+import turbulenz.sound.SoundDevice;
+import turbulenz.physics3d.PhysicsDevice;
 
 typedef Canvas = Dynamic;
 

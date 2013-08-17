@@ -1,4 +1,4 @@
-package turbulenz;
+package turbulenz.util;
 
 class TZJS {
     public macro static function require(module:String) return macro

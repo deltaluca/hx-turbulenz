@@ -1,4 +1,4 @@
-package turbulenz;
+package turbulenz.graphics;
 
 @:native("TechniqueParameters")
 @:publicFields

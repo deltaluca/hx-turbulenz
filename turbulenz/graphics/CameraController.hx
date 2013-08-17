@@ -1,17 +1,17 @@
-package turbulenz;
+package turbulenz.graphics;
 
-import turbulenz.MathDevice;
-import turbulenz.GraphicsDevice;
+import turbulenz.graphics.Camera;
+import turbulenz.graphics.GraphicsDevice;
 import turbulenz.InputDevice;
-import turbulenz.Camera;
+import turbulenz.MathDevice;
 
 @:native("CameraController")
 @:publicFields
 extern class CameraController {
-    var version(default,never):Float;
     var maxSpeed:Float;
-    var rotateSpeed:Float;
     var mouseRotateFactor:Float;
+    var rotateSpeed:Float;
+    var version(default,never):Float;
 
     static function create(graphics:GraphicsDevice, input:InputDevice, camera:Camera):CameraController;
 

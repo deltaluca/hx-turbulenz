@@ -1,4 +1,4 @@
-package turbulenz;
+package turbulenz.util;
 
 typedef Int8 = Int;
 typedef Int16 = Int;

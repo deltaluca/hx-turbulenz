@@ -2,11 +2,11 @@ package;
 
 using Lambda;
 
+import turbulenz.graphics.Camera;
+import turbulenz.graphics.Floor;
+import turbulenz.net.RequestHandler;
 import turbulenz.TurbulenzEngine;
-import turbulenz.Camera;
-import turbulenz.Floor;
-import turbulenz.JSON;
-import turbulenz.RequestHandler;
+import turbulenz.util.JSON;
 
 class FirstApp {
     static function main() {

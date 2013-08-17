@@ -1,18 +1,18 @@
-package turbulenz;
+package turbulenz.graphics;
 
-import turbulenz.GraphicsDevice;
+import turbulenz.graphics.GraphicsDevice;
 import turbulenz.MathDevice;
-import turbulenz.TZArray;
+import turbulenz.util.TZArray;
 
 @:native("Floor")
 @:publicFields
 extern class Floor {
     static function __init__():Void turbulenz.TZJS.require("floor");
 
-    var version(get,never):Float;
     var color:RGBA;
     var fadeToColor:RGBA;
     var numLines:Int;
+    var version(get,never):Float;
 
     static function create(graphics:GraphicsDevice, math:MathDevice):Floor;
 

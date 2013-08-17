@@ -1,4 +1,4 @@
-package turbulenz.phys3d;
+package turbulenz.physics3d;
 
 import turbulenz.MathDevice;
 

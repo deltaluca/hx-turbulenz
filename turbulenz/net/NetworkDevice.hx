@@ -1,4 +1,4 @@
-package turbulenz;
+package turbulenz.net;
 
 @:native("NetworkDevice")
 @:publicFields

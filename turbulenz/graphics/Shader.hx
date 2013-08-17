@@ -1,21 +1,21 @@
-package turbulenz;
+package turbulenz.graphics;
 
-import turbulenz.Technique;
+import turbulenz.graphics.Technique;
 
 @:native("Shader")
 @:publicFields
 extern class Shader {
-    var name(default,never):String;
     var id(default,never):Int;
-    var numTechniques(default,never):Int;
+    var name(default,never):String;
     var numParameters(default,never):Int;
+    var numTechniques(default,never):Int;
 
     function destroy():Void;
-    function getTechnique(indexOrName:Dynamic):Null<Technique>;
     function getParameter(indexOrName:Dynamic):Null<{
+        columns: Int,
         name: String,
-        type: String,
         rows: Int,
-        columns: Int
+        type: String
     }>;
+    function getTechnique(indexOrName:Dynamic):Null<Technique>;
 }

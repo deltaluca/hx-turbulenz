@@ -1,4 +1,4 @@
-package turbulenz;
+package turbulenz.net;
 
 typedef RequestFn<T> = String->(T->Int->Void)->RequestContext<T>->Void;
 
@@ -20,8 +20,8 @@ typedef Reason = Int;
 @:publicFields
 extern class RequestHandler<T> {
     static function __init__():Void {
-        turbulenz.TZJS.require("observer");
-        turbulenz.TZJS.require("requesthandler");
+        turbulenz.util.TZJS.require("observer");
+        turbulenz.util.TZJS.require("requesthandler");
     }
 
     var initialRetryTime:Int;

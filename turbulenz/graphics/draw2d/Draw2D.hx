@@ -1,16 +1,16 @@
-package turbulenz;
+package turbulenz.graphics.draw2d;
 
-import turbulenz.GraphicsDevice;
-import turbulenz.Texture;
-import turbulenz.RenderTarget;
-import turbulenz.Technique;
-import turbulenz.TZArray;
+import turbulenz.graphics.draw2d.Draw2DSprite;
+import turbulenz.graphics.GraphicsDevice;
+import turbulenz.graphics.RenderTarget;
+import turbulenz.graphics.Technique;
+import turbulenz.graphics.Texture;
 import turbulenz.MathDevice;
-import turbulenz.Draw2DSprite;
+import turbulenz.util.TZArray;
 
+typedef BlendMode = String;
 typedef ScaleMode = String;
 typedef SortMode = String;
-typedef BlendMode = String;
 
 @:native("Draw2D")
 @:publicFields
@@ -24,8 +24,6 @@ extern class Draw2D {
         ?maxGpuMemory: Int
     }):Draw2D;
 
-    var scale(default,never):Dynamic<ScaleMode>;
-    var sort(default,never):Dynamic<SortMode>;
     var blend(default,never):Dynamic<BlendMode>;
     var performanceData(default,never):{
         gpuMemoryUsage: Int,
@@ -35,6 +33,8 @@ extern class Draw2D {
         maxBatchSize: Null<Int>,
         avgBatchSize: Null<Float>
     };
+    var scale(default,never):Dynamic<ScaleMode>;
+    var sort(default,never):Dynamic<SortMode>;
 
     function configure(params:{
         ?scaleMode: ScaleMode,

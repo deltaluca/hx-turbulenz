@@ -1,7 +1,7 @@
-package turbulenz;
+package turbulenz.physics3d;
 
 import turbulenz.MathDevice;
-import turbulenz.phys3d.DynamicsWorld;
+import turbulenz.physics3d.DynamicsWorld;
 
 @:native("PhysicsDevice")
 @:publicFields
@@ -11,12 +11,12 @@ extern class PhysicsDevice {
     var version(default,never):String;
 
     function createDynamicsWorld(params:{
-        ?maxSubSteps:Int,
         ?fixedTimeStep:Float,
         ?gravity:Vector3,
-        ?variableTimeSteps:Bool,
-        ?minimumTimeStep:Float,
+        ?maxGiveUpTimeStep:Float,
         ?maximumTimeStep:Float,
-        ?maxGiveUpTimeStep:Float
+        ?maxSubSteps:Int,
+        ?minimumTimeStep:Float,
+        ?variableTimeSteps:Bool
     }):DynamicsWorld;
 }

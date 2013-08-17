@@ -1,4 +1,4 @@
-package turbulenz;
+package turbulenz.util;
 
 @:native("JSON")
 @:publicFields
