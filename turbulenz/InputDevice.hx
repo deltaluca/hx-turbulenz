@@ -133,7 +133,7 @@ typedef PadCodes = {
     BACK:PadCode
 };
 
-@:fakeEnum abstract EventType(String) {
+@:fakeEnum abstract InputDeviceEvent(String) from String to String {
     var keydown = 'keydown';
     var keyup = 'keyup';
     var mousedown = 'mousedown';
@@ -156,7 +156,7 @@ typedef PadCodes = {
     var touchcancel = 'touchcancel';
 }
 
-@:fakeEnum abstract Feature(String) {
+@:fakeEnum abstract Feature(String) from String to String {
     var POINTER_LOCK = 'POINTER_LOCK';
 }
 
@@ -168,8 +168,8 @@ extern class InputDevice {
     var padCodes(default,never):PadCodes;
 
     function update():Void;
-    function addEventListener(eventType:EventType, eventListener:Dynamic):Void;
-    function removeEventListener(eventType:EventType, eventListener:Dynamic):Void;
+    function addEventListener(eventType:InputDeviceEvent, eventListener:Dynamic):Void;
+    function removeEventListener(eventType:InputDeviceEvent, eventListener:Dynamic):Void;
     function lockMouse():Bool;
     function isLocked():Bool;
     function hideMouse():Bool;
