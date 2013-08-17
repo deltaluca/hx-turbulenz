@@ -116,6 +116,32 @@ abstract Vector4(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
         return 'v4($x,$y,$z,$w)';
 }
 
+abstract Box(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
+    inline public function slice(from:Int, to:Int):TZArray<Float32>
+        return untyped __js__("(function (from, to) {
+            return this.slice(from, to);
+        })").call(this, from, to);
+
+    @:arrayAccess public inline function get(i:Int):Float return this[i];
+    @:arrayAccess public inline function set(i:Int,x:Float):Float return this[i] = x;
+
+    public var xMin(get,set):Float;
+    public var yMin(get,set):Float;
+    public var xMax(get,set):Float;
+    public var yMax(get,set):Float;
+    inline function get_xMin():Float return this[0];
+    inline function set_xMin(x:Float):Float return this[0] = x;
+    inline function get_yMin():Float return this[1];
+    inline function set_yMin(y:Float):Float return this[1] = y;
+    inline function get_xMax():Float return this[3];
+    inline function set_xMax(x:Float):Float return this[3] = x;
+    inline function get_yMax():Float return this[4];
+    inline function set_yMax(y:Float):Float return this[4] = y;
+
+    public inline function toString()
+        return 'box($xMin,$yMin, $xMax,$yMax)';
+}
+
 abstract AABB(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     inline public function slice(from:Int, to:Int):TZArray<Float32>
         return untyped __js__("(function (from, to) {
