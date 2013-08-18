@@ -3,6 +3,7 @@ package turbulenz.physics2d;
 import turbulenz.MathDevice;
 import turbulenz.physics2d.CollisionUtils;
 import turbulenz.physics2d.Constraint;
+import turbulenz.physics2d.DebugDraw;
 import turbulenz.physics2d.Material;
 import turbulenz.physics2d.RigidBody;
 import turbulenz.physics2d.Shape;
@@ -10,9 +11,6 @@ import turbulenz.physics2d.World;
 import turbulenz.util.BoxTree;
 import turbulenz.util.Broadphase;
 import turbulenz.util.TZArray;
-
-// TODO
-typedef DebugDraw = Dynamic;
 
 typedef Physics2DBroadphase = Broadphase<Shape, Box>;
 

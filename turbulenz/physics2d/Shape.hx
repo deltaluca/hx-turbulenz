@@ -45,13 +45,13 @@ extern class Shape {
     function translate(translation:Vector2):Void;
 
     // Haxe 'this' differs from JS 'this'.
-    inline function addEventListener(event:ShapeEventType, handler:Shape->Arbiter->Shape->Void, ?mask:Int, ?isDeterministic:Int):Bool return
+    inline function addEventListener(event:ShapeEventType, handler:Shape->Arbiter->Shape->Void, ?mask:Int, ?isDeterministic:Bool):Bool return
         untyped __js__("(function (ev,f,m,d) {
-            return this.addEventListener(ev, f, m, d);
+            return this.addEventListener(ev, f, m == null ? undefined : m, d);
         })").call(this, event, TZJS.wrap2(handler), mask, isDeterministic);
     inline function removeEventListener(event:ShapeEventType, handler:Shape->Arbiter->Shape->Void, ?mask:Int):Bool return
         untyped __js__("(function (ev,f,m) {
-            return this.removeEventListener(ev, f, m);
+            return this.removeEventListener(ev, f, m == null ? undefined : m);
         })").call(this, event, TZJS.wrap2(handler), mask);
 }
 
