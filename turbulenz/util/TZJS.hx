@@ -2,8 +2,53 @@ package turbulenz.util;
 
 class TZJS {
     // Auto embedding of tzjs include meta comments.
-    public macro static function require(module:String) return macro
-        untyped __js__('/*{{ javascript("jslib/$module.js") }}*/ null');
+    static var require_cache:Array<String> = [];
+    public macro static function require(module:String) {
+        if (Lambda.has(require_cache, module)) return macro {};
+        else {
+            require_cache.push(module);
+            Sys.stdout().writeString('\x1b[31;1mTZJS \x1b[33;2m[\x1b[mREQUIRE\x1b[33;2m]\x1b[m $module\n');
+            return macro untyped __js__('/*{{ javascript("jslib/$module.js") }}*/ null');
+        }
+    }
+
+    // Compile time json parsing/embedding
+    public macro static function embedJSON(path:String):haxe.macro.Expr.ExprOf<Dynamic> {
+        Sys.stdout().writeString('\x1b[31;1mTZJS \x1b[33;2m[\x1b[mJSON-EMBED\x1b[33;2m]\x1b[m $path \x1b[36;3m@ ${haxe.macro.Context.currentPos()}\x1b[m');
+
+        var json:String;
+        try json = sys.io.File.getContent(path)
+        catch (e:Dynamic) {
+            Sys.stdout().writeString("\x1b[31;1m ... file not found!\x1b[m\n");
+            Sys.exit(1);
+            return null;
+        }
+        try {
+            var result = macro $v{haxe.Json.parse(json)};
+            Sys.stdout().writeString("\n");
+            return result;
+        }
+        catch (e:Dynamic) {
+            Sys.stdout().writeString("\x1b[31;1m ... invalid JSON! ("+Std.string(e)+")\x1b[m\n");
+            Sys.exit(1);
+            return null;
+        }
+    }
+
+    // Compile time json parsing
+    public macro static function parseJSON(json:String):haxe.macro.Expr.ExprOf<Dynamic> {
+        Sys.stdout().writeString('\x1b[31;1mTZJS \x1b[33;2m[\x1b[mJSON-PARSE\x1b[33;2m]\x1b[m \x1b[36;3m@ ${haxe.macro.Context.currentPos()}\x1b[m');
+        try {
+            var result = macro $v{haxe.Json.parse(json)};
+            Sys.stdout().writeString("\n");
+            return result;
+        }
+        catch (e:Dynamic) {
+            Sys.stdout().writeString("\x1b[31;1m ... invalid JSON! ("+Std.string(e)+")\x1b[m\n");
+            Sys.exit(1);
+            return null;
+        }
+    }
 
     // Wrapping of Haxe functions for elements of JS API which accepts
     // handlers called with different 'this' parameter, allowing Haxe
