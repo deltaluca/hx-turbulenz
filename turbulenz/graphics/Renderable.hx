@@ -19,11 +19,11 @@ interface Renderable {
     function setMaterial(material:Material):Void;
     function getNode():Null<SceneNode>;
 
-    var diffuseDrawParameters:DrawParameters;
+    var diffuseDrawParameters:Array<DrawParameters>;
     var disabled:Bool;
-    var drawParameters:DrawParameters;
+    var drawParameters:Array<DrawParameters>;
     var geometryType:String;
-    var shadowDrawParameters:DrawParameters;
+    var shadowDrawParameters:Array<DrawParameters>;
     var sharedMaterial:Material;
     var worldExtents:AABB;
     var distance:Float; // not set by implementation.
@@ -37,8 +37,8 @@ interface Renderable {
     var center:Null<Vector3>;
     function setNode(node:SceneNode):Void; // Called by SceneNode when add/removeRenderable is called.
     var queryCounter:Int; // not set by implementation
-    var diffuseShadowDrawParameters:DrawParameters;
-    var shadowMappingDrawParametres:DrawParameters;
+    var diffuseShadowDrawParameters:Array<DrawParameters>;
+    var shadowMappingDrawParametres:Array<DrawParameters>;
     var geometry:Dynamic; // TODO
     var surface:Dynamic; // TODO
     var techniqueParameters:TechniqueParameters;
