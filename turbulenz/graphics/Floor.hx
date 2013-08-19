@@ -7,7 +7,7 @@ import turbulenz.util.TZArray;
 @:native("Floor")
 @:publicFields
 extern class Floor {
-    static function __init__():Void turbulenz.TZJS.require("floor");
+    static function __init__():Void turbulenz.util.TZJS.require("floor");
 
     var color:RGBA;
     var fadeToColor:RGBA;
