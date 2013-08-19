@@ -17,6 +17,9 @@ class Physics2DCallbacks {
         var md = TurbulenzEngine.createMathDevice({});
         var id = TurbulenzEngine.createInputDevice({});
 
+        var test = turbulenz.util.TZJS.embedJSON("test.json");
+        var test = turbulenz.util.TZJS.parseJSON('{"x":[1,2]}');
+
         //==================================================
         // Phys2D/Draw2D
         //==================================================
