@@ -23,7 +23,7 @@ extern class DefaultRendering {
     function setDefaultTexture(texture:Texture):Void;
     function setGlobalLightColor(color:Vector3):Void;
     function setGlobalLightPosition(position:Vector3):Void;
-    function setWireFrame(enable:Bool, ?config:{
+    function setWireframe(enable:Bool, ?config:{
         alphaRef: Float,
         fillColor: Vector4,
         wireColor: Vector4

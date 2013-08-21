@@ -1,5 +1,6 @@
 package turbulenz.graphics;
 
+import turbulenz.graphics.Effect;
 import turbulenz.graphics.GraphicsDevice;
 import turbulenz.graphics.TechniqueParameters;
 import turbulenz.util.TZJS;
@@ -18,5 +19,9 @@ extern class Material {
 
     var techniqueParameters:TechniqueParameters;
     var meta:Dynamic<Dynamic>;
+
+    // undocumented in turbulenz API docs.
+    var effect:Effect;
+    function setName(name:String):String;
 }
 
