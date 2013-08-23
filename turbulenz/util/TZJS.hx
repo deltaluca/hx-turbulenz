@@ -4,12 +4,11 @@ class TZJS {
     // Auto embedding of tzjs include meta comments.
     static var require_cache:Array<String> = [];
     public macro static function require(module:String) {
-//        if (Lambda.has(require_cache, module)) return macro {};
-//        else {
-//            require_cache.push(module);
+        if (haxe.macro.Context.defined("no_requires")) return macro {};
+        else {
             Sys.stdout().writeString('\x1b[31;1mTZJS \x1b[33;2m[\x1b[mREQUIRE\x1b[33;2m]\x1b[m $module\n');
-            return macro untyped __js__('/*{{ javascript("jslib/$module.js") }}*/ null');
-//        }
+            return macro untyped __js__('/*{{ javascript("jslib/$module.js") }}*/ {}');
+        }
     }
 
     // Compile time json parsing/embedding
