@@ -613,6 +613,7 @@ extern class MathDevice {
     function m43SetRight(matrix:Matrix43, vector:Vector3):Void;
     function m43SetUp(matrix:Matrix43, vector:Vector3):Void;
     function m43TransformPoint(matrix:Matrix43, vector:Vector3, ?dst:Vector3):Vector3;
+    function m43TransformVector(matrix:Matrix43, vector:Vector3, ?dst:Vector3):Vector3;
     function m43Translate(matrix:Matrix43, vector:Vector3):Void;
     function m43Transpose(matrix:Matrix43, ?dst:Matrix34):Matrix34;
     function m43Up(matrix:Matrix43, ?dst:Vector3):Vector3;
