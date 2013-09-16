@@ -7,7 +7,7 @@ import turbulenz.MathDevice;
 @:native("Draw2DSprite")
 @:publicFields
 extern class Draw2DSprite {
-    static function __init__():Void turbulenz.TZJS.require("draw2d");
+    static function __init__():Void turbulenz.util.TZJS.require("draw2d");
 
     static function create(params:{
         ?color: RGBA,

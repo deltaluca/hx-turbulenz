@@ -127,7 +127,8 @@ abstract TZArray<T>(Dynamic) {
     @:from public static inline function fromArrI8 (xs:Array<Int8>)   :TZArray<Int8>    return untyped xs;
     @:from public static inline function fromArrI16(xs:Array<Int16>)  :TZArray<Int16>   return untyped xs;
     @:from public static inline function fromArrI32(xs:Array<Int32>)  :TZArray<Int32>   return untyped xs;
-    @:from public static inline function fromArrU8 (xs:Array<UInt8>)  :TZArray<UInt8>   return untyped xs;    @:from public static inline function fromArrU16(xs:Array<UInt16>) :TZArray<UInt16>  return untyped xs;
+    @:from public static inline function fromArrU8 (xs:Array<UInt8>)  :TZArray<UInt8>   return untyped xs;
+    @:from public static inline function fromArrU16(xs:Array<UInt16>) :TZArray<UInt16>  return untyped xs;
     @:from public static inline function fromArrU32(xs:Array<UInt32>) :TZArray<UInt32>  return untyped xs;
     @:from public static inline function fromArrF32(xs:Array<Float32>):TZArray<Float32> return untyped xs;
     @:from public static inline function fromArrF64(xs:Array<Float64>):TZArray<Float64> return untyped xs;

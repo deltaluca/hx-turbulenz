@@ -15,7 +15,7 @@ typedef SortMode = String;
 @:native("Draw2D")
 @:publicFields
 extern class Draw2D {
-    static function __init__():Void turbulenz.TZJS.require("draw2d");
+    static function __init__():Void turbulenz.util.TZJS.require("draw2d");
 
     static function create(params:{
         graphicsDevice: GraphicsDevice,
