@@ -5,29 +5,29 @@ import turbulenz.util.TZArray;
 typedef Ray<T> = {
     direction: T,
     maxFactor: Float,
-    origin: T
+    origin   : T
 };
 
 abstract Vector2(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var x(get,set):Float;
     public var y(get,set):Float;
     inline function get_x():Float return this[0];
-    inline function set_x(x:Float):Float return this[0] = x;
     inline function get_y():Float return this[1];
+    inline function set_x(x:Float):Float return this[0] = x;
     inline function set_y(y:Float):Float return this[1] = y;
 
     public var s(get,set):Float;
     public var t(get,set):Float;
     inline function get_s():Float return this[0];
-    inline function set_s(s:Float):Float return this[0] = s;
     inline function get_t():Float return this[1];
+    inline function set_s(s:Float):Float return this[0] = s;
     inline function set_t(t:Float):Float return this[1] = t;
 
     public var r(get,set):Float;
     public var g(get,set):Float;
     inline function get_r():Float return this[0];
-    inline function set_r(r:Float):Float return this[0] = r;
     inline function get_g():Float return this[1];
+    inline function set_r(r:Float):Float return this[0] = r;
     inline function set_g(g:Float):Float return this[1] = g;
 
     @:arrayAccess public inline function get(i:Int):Float return this[i];
@@ -42,30 +42,30 @@ abstract Vector3(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var y(get,set):Float;
     public var z(get,set):Float;
     inline function get_x():Float return this[0];
-    inline function set_x(x:Float):Float return this[0] = x;
     inline function get_y():Float return this[1];
-    inline function set_y(y:Float):Float return this[1] = y;
     inline function get_z():Float return this[2];
+    inline function set_x(x:Float):Float return this[0] = x;
+    inline function set_y(y:Float):Float return this[1] = y;
     inline function set_z(z:Float):Float return this[2] = z;
 
     public var s(get,set):Float;
     public var t(get,set):Float;
     public var p(get,set):Float;
     inline function get_s():Float return this[0];
-    inline function set_s(s:Float):Float return this[0] = s;
     inline function get_t():Float return this[1];
-    inline function set_t(t:Float):Float return this[1] = t;
     inline function get_p():Float return this[2];
+    inline function set_s(s:Float):Float return this[0] = s;
+    inline function set_t(t:Float):Float return this[1] = t;
     inline function set_p(p:Float):Float return this[2] = p;
 
     public var r(get,set):Float;
     public var g(get,set):Float;
     public var b(get,set):Float;
     inline function get_r():Float return this[0];
-    inline function set_r(r:Float):Float return this[0] = r;
     inline function get_g():Float return this[1];
-    inline function set_g(g:Float):Float return this[1] = g;
     inline function get_b():Float return this[2];
+    inline function set_r(r:Float):Float return this[0] = r;
+    inline function set_g(g:Float):Float return this[1] = g;
     inline function set_b(b:Float):Float return this[2] = b;
 
     @:arrayAccess public inline function get(i:Int):Float return this[i];
@@ -81,12 +81,12 @@ abstract Vector4(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var z(get,set):Float;
     public var w(get,set):Float;
     inline function get_x():Float return this[0];
-    inline function set_x(x:Float):Float return this[0] = x;
     inline function get_y():Float return this[1];
-    inline function set_y(y:Float):Float return this[1] = y;
     inline function get_z():Float return this[2];
-    inline function set_z(z:Float):Float return this[2] = z;
     inline function get_w():Float return this[3];
+    inline function set_x(x:Float):Float return this[0] = x;
+    inline function set_y(y:Float):Float return this[1] = y;
+    inline function set_z(z:Float):Float return this[2] = z;
     inline function set_w(w:Float):Float return this[3] = w;
 
     public var s(get,set):Float;
@@ -94,12 +94,12 @@ abstract Vector4(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var p(get,set):Float;
     public var q(get,set):Float;
     inline function get_s():Float return this[0];
-    inline function set_s(s:Float):Float return this[0] = s;
     inline function get_t():Float return this[1];
-    inline function set_t(t:Float):Float return this[1] = t;
     inline function get_p():Float return this[2];
-    inline function set_p(p:Float):Float return this[2] = p;
     inline function get_q():Float return this[3];
+    inline function set_s(s:Float):Float return this[0] = s;
+    inline function set_t(t:Float):Float return this[1] = t;
+    inline function set_p(p:Float):Float return this[2] = p;
     inline function set_q(q:Float):Float return this[3] = q;
 
     public var r(get,set):Float;
@@ -107,12 +107,12 @@ abstract Vector4(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var b(get,set):Float;
     public var a(get,set):Float;
     inline function get_r():Float return this[0];
-    inline function set_r(r:Float):Float return this[0] = r;
     inline function get_g():Float return this[1];
-    inline function set_g(g:Float):Float return this[1] = g;
     inline function get_b():Float return this[2];
-    inline function set_b(b:Float):Float return this[2] = b;
     inline function get_a():Float return this[3];
+    inline function set_r(r:Float):Float return this[0] = r;
+    inline function set_g(g:Float):Float return this[1] = g;
+    inline function set_b(b:Float):Float return this[2] = b;
     inline function set_a(a:Float):Float return this[3] = a;
 
     @:arrayAccess public inline function get(i:Int):Float return this[i];
@@ -128,21 +128,21 @@ abstract Box(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
             return this.slice(from, to);
         })").call(this, from, to);
 
-    @:arrayAccess public inline function get(i:Int):Float return this[i];
-    @:arrayAccess public inline function set(i:Int,x:Float):Float return this[i] = x;
-
     public var xMin(get,set):Float;
     public var yMin(get,set):Float;
     public var xMax(get,set):Float;
     public var yMax(get,set):Float;
     inline function get_xMin():Float return this[0];
-    inline function set_xMin(x:Float):Float return this[0] = x;
     inline function get_yMin():Float return this[1];
+    inline function get_xMax():Float return this[2];
+    inline function get_yMax():Float return this[3];
+    inline function set_xMin(x:Float):Float return this[0] = x;
     inline function set_yMin(y:Float):Float return this[1] = y;
-    inline function get_xMax():Float return this[3];
-    inline function set_xMax(x:Float):Float return this[3] = x;
-    inline function get_yMax():Float return this[4];
-    inline function set_yMax(y:Float):Float return this[4] = y;
+    inline function set_xMax(x:Float):Float return this[2] = x;
+    inline function set_yMax(y:Float):Float return this[3] = y;
+
+    @:arrayAccess public inline function get(i:Int):Float return this[i];
+    @:arrayAccess public inline function set(i:Int,x:Float):Float return this[i] = x;
 
     public inline function toString()
         return 'box($xMin,$yMin, $xMax,$yMax)';
@@ -154,9 +154,6 @@ abstract AABB(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
             return this.slice(from, to);
         })").call(this, from, to);
 
-    @:arrayAccess public inline function get(i:Int):Float return this[i];
-    @:arrayAccess public inline function set(i:Int,x:Float):Float return this[i] = x;
-
     public var xMin(get,set):Float;
     public var yMin(get,set):Float;
     public var zMin(get,set):Float;
@@ -164,17 +161,20 @@ abstract AABB(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var yMax(get,set):Float;
     public var zMax(get,set):Float;
     inline function get_xMin():Float return this[0];
-    inline function set_xMin(x:Float):Float return this[0] = x;
     inline function get_yMin():Float return this[1];
-    inline function set_yMin(y:Float):Float return this[1] = y;
     inline function get_zMin():Float return this[2];
-    inline function set_zMin(z:Float):Float return this[2] = z;
     inline function get_xMax():Float return this[3];
-    inline function set_xMax(x:Float):Float return this[3] = x;
     inline function get_yMax():Float return this[4];
-    inline function set_yMax(y:Float):Float return this[4] = y;
     inline function get_zMax():Float return this[5];
+    inline function set_xMin(x:Float):Float return this[0] = x;
+    inline function set_yMin(y:Float):Float return this[1] = y;
+    inline function set_zMin(z:Float):Float return this[2] = z;
+    inline function set_xMax(x:Float):Float return this[3] = x;
+    inline function set_yMax(y:Float):Float return this[4] = y;
     inline function set_zMax(z:Float):Float return this[5] = z;
+
+    @:arrayAccess public inline function get(i:Int):Float return this[i];
+    @:arrayAccess public inline function set(i:Int,x:Float):Float return this[i] = x;
 
     public inline function toString()
         return 'aabb($xMin,$yMin,$zMin, $xMax,$yMax,$zMax)';
@@ -186,12 +186,12 @@ abstract RGBA(Vector4) from Vector4 to Vector4 from TZArray<Float32> to TZArray<
     public var b(get,set):Float;
     public var a(get,set):Float;
     inline function get_r():Float return this[0];
-    inline function set_r(r:Float):Float return this[0] = r;
     inline function get_g():Float return this[1];
-    inline function set_g(g:Float):Float return this[1] = g;
     inline function get_b():Float return this[2];
-    inline function set_b(b:Float):Float return this[2] = b;
     inline function get_a():Float return this[3];
+    inline function set_r(r:Float):Float return this[0] = r;
+    inline function set_g(g:Float):Float return this[1] = g;
+    inline function set_b(b:Float):Float return this[2] = b;
     inline function set_a(a:Float):Float return this[3] = a;
 
     @:arrayAccess public inline function get(i:Int):Float return this[i];
@@ -228,41 +228,41 @@ abstract Matrix33(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var m33(get,set):Float;
 
     inline function get_a():Float return this[0];
-    inline function set_a(a:Float):Float return this[0] = a;
     inline function get_b():Float return this[1];
-    inline function set_b(b:Float):Float return this[1] = b;
     inline function get_c():Float return this[2];
-    inline function set_c(c:Float):Float return this[2] = c;
     inline function get_d():Float return this[3];
-    inline function set_d(d:Float):Float return this[3] = d;
     inline function get_e():Float return this[4];
-    inline function set_e(e:Float):Float return this[4] = e;
     inline function get_f():Float return this[5];
-    inline function set_f(f:Float):Float return this[5] = f;
     inline function get_g():Float return this[6];
-    inline function set_g(g:Float):Float return this[6] = g;
     inline function get_h():Float return this[7];
-    inline function set_h(h:Float):Float return this[7] = h;
     inline function get_i():Float return this[8];
+    inline function set_a(a:Float):Float return this[0] = a;
+    inline function set_b(b:Float):Float return this[1] = b;
+    inline function set_c(c:Float):Float return this[2] = c;
+    inline function set_d(d:Float):Float return this[3] = d;
+    inline function set_e(e:Float):Float return this[4] = e;
+    inline function set_f(f:Float):Float return this[5] = f;
+    inline function set_g(g:Float):Float return this[6] = g;
+    inline function set_h(h:Float):Float return this[7] = h;
     inline function set_i(i:Float):Float return this[8] = i;
 
     inline function get_m11():Float return this[0];
-    inline function set_m11(m11:Float):Float return this[0] = m11;
     inline function get_m12():Float return this[1];
-    inline function set_m12(m12:Float):Float return this[1] = m12;
     inline function get_m13():Float return this[2];
-    inline function set_m13(m13:Float):Float return this[2] = m13;
     inline function get_m21():Float return this[3];
-    inline function set_m21(m21:Float):Float return this[3] = m21;
     inline function get_m22():Float return this[4];
-    inline function set_m22(m22:Float):Float return this[4] = m22;
     inline function get_m23():Float return this[5];
-    inline function set_m23(m23:Float):Float return this[5] = m23;
     inline function get_m31():Float return this[6];
-    inline function set_m31(m31:Float):Float return this[6] = m31;
     inline function get_m32():Float return this[7];
-    inline function set_m32(m32:Float):Float return this[7] = m32;
     inline function get_m33():Float return this[8];
+    inline function set_m11(m11:Float):Float return this[0] = m11;
+    inline function set_m12(m12:Float):Float return this[1] = m12;
+    inline function set_m13(m13:Float):Float return this[2] = m13;
+    inline function set_m21(m21:Float):Float return this[3] = m21;
+    inline function set_m22(m22:Float):Float return this[4] = m22;
+    inline function set_m23(m23:Float):Float return this[5] = m23;
+    inline function set_m31(m31:Float):Float return this[6] = m31;
+    inline function set_m32(m32:Float):Float return this[7] = m32;
     inline function set_m33(m33:Float):Float return this[8] = m33;
 
     public inline function toString() return
@@ -297,53 +297,53 @@ abstract Matrix34(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var m34(get,set):Float;
 
     inline function get_a():Float return this[0];
-    inline function set_a(a:Float):Float return this[0] = a;
     inline function get_b():Float return this[1];
-    inline function set_b(b:Float):Float return this[1] = b;
     inline function get_c():Float return this[2];
-    inline function set_c(c:Float):Float return this[2] = c;
     inline function get_d():Float return this[3];
-    inline function set_d(d:Float):Float return this[3] = d;
     inline function get_e():Float return this[4];
-    inline function set_e(e:Float):Float return this[4] = e;
     inline function get_f():Float return this[5];
-    inline function set_f(f:Float):Float return this[5] = f;
     inline function get_g():Float return this[6];
-    inline function set_g(g:Float):Float return this[6] = g;
     inline function get_h():Float return this[7];
-    inline function set_h(h:Float):Float return this[7] = h;
     inline function get_i():Float return this[8];
-    inline function set_i(i:Float):Float return this[8] = i;
     inline function get_j():Float return this[9];
-    inline function set_j(j:Float):Float return this[9] = j;
     inline function get_k():Float return this[10];
-    inline function set_k(k:Float):Float return this[10] = k;
     inline function get_l():Float return this[11];
+    inline function set_a(a:Float):Float return this[0]  = a;
+    inline function set_b(b:Float):Float return this[1]  = b;
+    inline function set_c(c:Float):Float return this[2]  = c;
+    inline function set_d(d:Float):Float return this[3]  = d;
+    inline function set_e(e:Float):Float return this[4]  = e;
+    inline function set_f(f:Float):Float return this[5]  = f;
+    inline function set_g(g:Float):Float return this[6]  = g;
+    inline function set_h(h:Float):Float return this[7]  = h;
+    inline function set_i(i:Float):Float return this[8]  = i;
+    inline function set_j(j:Float):Float return this[9]  = j;
+    inline function set_k(k:Float):Float return this[10] = k;
     inline function set_l(l:Float):Float return this[11] = l;
 
     inline function get_m11():Float return this[0];
-    inline function set_m11(m11:Float):Float return this[0] = m11;
     inline function get_m12():Float return this[1];
-    inline function set_m12(m12:Float):Float return this[1] = m12;
     inline function get_m13():Float return this[2];
-    inline function set_m13(m13:Float):Float return this[2] = m13;
     inline function get_m14():Float return this[3];
-    inline function set_m14(m14:Float):Float return this[3] = m14;
     inline function get_m21():Float return this[4];
-    inline function set_m21(m21:Float):Float return this[4] = m21;
     inline function get_m22():Float return this[5];
-    inline function set_m22(m22:Float):Float return this[5] = m22;
     inline function get_m23():Float return this[6];
-    inline function set_m23(m23:Float):Float return this[6] = m23;
     inline function get_m24():Float return this[7];
-    inline function set_m24(m24:Float):Float return this[7] = m24;
     inline function get_m31():Float return this[8];
-    inline function set_m31(m31:Float):Float return this[8] = m31;
     inline function get_m32():Float return this[9];
-    inline function set_m32(m32:Float):Float return this[9] = m32;
     inline function get_m33():Float return this[10];
-    inline function set_m33(m33:Float):Float return this[10] = m33;
     inline function get_m34():Float return this[11];
+    inline function set_m11(m11:Float):Float return this[0]  = m11;
+    inline function set_m12(m12:Float):Float return this[1]  = m12;
+    inline function set_m13(m13:Float):Float return this[2]  = m13;
+    inline function set_m14(m14:Float):Float return this[3]  = m14;
+    inline function set_m21(m21:Float):Float return this[4]  = m21;
+    inline function set_m22(m22:Float):Float return this[5]  = m22;
+    inline function set_m23(m23:Float):Float return this[6]  = m23;
+    inline function set_m24(m24:Float):Float return this[7]  = m24;
+    inline function set_m31(m31:Float):Float return this[8]  = m31;
+    inline function set_m32(m32:Float):Float return this[9]  = m32;
+    inline function set_m33(m33:Float):Float return this[10] = m33;
     inline function set_m34(m34:Float):Float return this[11] = m34;
 
     public inline function toString() return
@@ -378,53 +378,53 @@ abstract Matrix43(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var m43(get,set):Float;
 
     inline function get_a():Float return this[0];
-    inline function set_a(a:Float):Float return this[0] = a;
     inline function get_b():Float return this[1];
-    inline function set_b(b:Float):Float return this[1] = b;
     inline function get_c():Float return this[2];
-    inline function set_c(c:Float):Float return this[2] = c;
     inline function get_d():Float return this[3];
-    inline function set_d(d:Float):Float return this[3] = d;
     inline function get_e():Float return this[4];
-    inline function set_e(e:Float):Float return this[4] = e;
     inline function get_f():Float return this[5];
-    inline function set_f(f:Float):Float return this[5] = f;
     inline function get_g():Float return this[6];
-    inline function set_g(g:Float):Float return this[6] = g;
     inline function get_h():Float return this[7];
-    inline function set_h(h:Float):Float return this[7] = h;
     inline function get_i():Float return this[8];
-    inline function set_i(i:Float):Float return this[8] = i;
     inline function get_j():Float return this[9];
-    inline function set_j(j:Float):Float return this[9] = j;
     inline function get_k():Float return this[10];
-    inline function set_k(k:Float):Float return this[10] = k;
     inline function get_l():Float return this[11];
+    inline function set_a(a:Float):Float return this[0]  = a;
+    inline function set_b(b:Float):Float return this[1]  = b;
+    inline function set_c(c:Float):Float return this[2]  = c;
+    inline function set_d(d:Float):Float return this[3]  = d;
+    inline function set_e(e:Float):Float return this[4]  = e;
+    inline function set_f(f:Float):Float return this[5]  = f;
+    inline function set_g(g:Float):Float return this[6]  = g;
+    inline function set_h(h:Float):Float return this[7]  = h;
+    inline function set_i(i:Float):Float return this[8]  = i;
+    inline function set_j(j:Float):Float return this[9]  = j;
+    inline function set_k(k:Float):Float return this[10] = k;
     inline function set_l(l:Float):Float return this[11] = l;
 
     inline function get_m11():Float return this[0];
-    inline function set_m11(m11:Float):Float return this[0] = m11;
     inline function get_m12():Float return this[1];
-    inline function set_m12(m12:Float):Float return this[1] = m12;
     inline function get_m13():Float return this[2];
-    inline function set_m13(m13:Float):Float return this[2] = m13;
     inline function get_m21():Float return this[3];
-    inline function set_m21(m21:Float):Float return this[3] = m21;
     inline function get_m22():Float return this[4];
-    inline function set_m22(m22:Float):Float return this[4] = m22;
     inline function get_m23():Float return this[5];
-    inline function set_m23(m23:Float):Float return this[5] = m23;
     inline function get_m31():Float return this[6];
-    inline function set_m31(m31:Float):Float return this[6] = m31;
     inline function get_m32():Float return this[7];
-    inline function set_m32(m32:Float):Float return this[7] = m32;
     inline function get_m33():Float return this[8];
-    inline function set_m33(m33:Float):Float return this[8] = m33;
     inline function get_m41():Float return this[9];
-    inline function set_m41(m41:Float):Float return this[9] = m41;
     inline function get_m42():Float return this[10];
-    inline function set_m42(m42:Float):Float return this[10] = m42;
     inline function get_m43():Float return this[11];
+    inline function set_m11(m11:Float):Float return this[0]  = m11;
+    inline function set_m12(m12:Float):Float return this[1]  = m12;
+    inline function set_m13(m13:Float):Float return this[2]  = m13;
+    inline function set_m21(m21:Float):Float return this[3]  = m21;
+    inline function set_m22(m22:Float):Float return this[4]  = m22;
+    inline function set_m23(m23:Float):Float return this[5]  = m23;
+    inline function set_m31(m31:Float):Float return this[6]  = m31;
+    inline function set_m32(m32:Float):Float return this[7]  = m32;
+    inline function set_m33(m33:Float):Float return this[8]  = m33;
+    inline function set_m41(m41:Float):Float return this[9]  = m41;
+    inline function set_m42(m42:Float):Float return this[10] = m42;
     inline function set_m43(m43:Float):Float return this[11] = m43;
 
     public inline function toString() return
@@ -467,69 +467,69 @@ abstract Matrix44(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
     public var m44(get,set):Float;
 
     inline function get_a():Float return this[0];
-    inline function set_a(a:Float):Float return this[0] = a;
     inline function get_b():Float return this[1];
-    inline function set_b(b:Float):Float return this[1] = b;
     inline function get_c():Float return this[2];
-    inline function set_c(c:Float):Float return this[2] = c;
     inline function get_d():Float return this[3];
-    inline function set_d(d:Float):Float return this[3] = d;
     inline function get_e():Float return this[4];
-    inline function set_e(e:Float):Float return this[4] = e;
     inline function get_f():Float return this[5];
-    inline function set_f(f:Float):Float return this[5] = f;
     inline function get_g():Float return this[6];
-    inline function set_g(g:Float):Float return this[6] = g;
     inline function get_h():Float return this[7];
-    inline function set_h(h:Float):Float return this[7] = h;
     inline function get_i():Float return this[8];
-    inline function set_i(i:Float):Float return this[8] = i;
     inline function get_j():Float return this[9];
-    inline function set_j(j:Float):Float return this[9] = j;
     inline function get_k():Float return this[10];
-    inline function set_k(k:Float):Float return this[10] = k;
     inline function get_l():Float return this[11];
-    inline function set_l(l:Float):Float return this[11] = l;
     inline function get_m():Float return this[12];
-    inline function set_m(m:Float):Float return this[12] = m;
     inline function get_n():Float return this[13];
-    inline function set_n(n:Float):Float return this[13] = n;
     inline function get_o():Float return this[14];
-    inline function set_o(o:Float):Float return this[14] = o;
     inline function get_p():Float return this[15];
+    inline function set_a(a:Float):Float return this[0]  = a;
+    inline function set_b(b:Float):Float return this[1]  = b;
+    inline function set_c(c:Float):Float return this[2]  = c;
+    inline function set_d(d:Float):Float return this[3]  = d;
+    inline function set_e(e:Float):Float return this[4]  = e;
+    inline function set_f(f:Float):Float return this[5]  = f;
+    inline function set_g(g:Float):Float return this[6]  = g;
+    inline function set_h(h:Float):Float return this[7]  = h;
+    inline function set_i(i:Float):Float return this[8]  = i;
+    inline function set_j(j:Float):Float return this[9]  = j;
+    inline function set_k(k:Float):Float return this[10] = k;
+    inline function set_l(l:Float):Float return this[11] = l;
+    inline function set_m(m:Float):Float return this[12] = m;
+    inline function set_n(n:Float):Float return this[13] = n;
+    inline function set_o(o:Float):Float return this[14] = o;
     inline function set_p(p:Float):Float return this[15] = p;
 
     inline function get_m11():Float return this[0];
-    inline function set_m11(m11:Float):Float return this[0] = m11;
     inline function get_m12():Float return this[1];
-    inline function set_m12(m12:Float):Float return this[1] = m12;
     inline function get_m13():Float return this[2];
-    inline function set_m13(m13:Float):Float return this[2] = m13;
     inline function get_m14():Float return this[3];
-    inline function set_m14(m14:Float):Float return this[3] = m14;
     inline function get_m21():Float return this[4];
-    inline function set_m21(m21:Float):Float return this[4] = m21;
     inline function get_m22():Float return this[5];
-    inline function set_m22(m22:Float):Float return this[5] = m22;
     inline function get_m23():Float return this[6];
-    inline function set_m23(m23:Float):Float return this[6] = m23;
     inline function get_m24():Float return this[7];
-    inline function set_m24(m24:Float):Float return this[7] = m24;
     inline function get_m31():Float return this[8];
-    inline function set_m31(m31:Float):Float return this[8] = m31;
     inline function get_m32():Float return this[9];
-    inline function set_m32(m32:Float):Float return this[9] = m32;
     inline function get_m33():Float return this[10];
-    inline function set_m33(m33:Float):Float return this[10] = m33;
     inline function get_m34():Float return this[11];
-    inline function set_m34(m34:Float):Float return this[11] = m34;
     inline function get_m41():Float return this[12];
-    inline function set_m41(m41:Float):Float return this[12] = m41;
     inline function get_m42():Float return this[13];
-    inline function set_m42(m42:Float):Float return this[13] = m42;
     inline function get_m43():Float return this[14];
-    inline function set_m43(m43:Float):Float return this[14] = m43;
     inline function get_m44():Float return this[15];
+    inline function set_m11(m11:Float):Float return this[0]  = m11;
+    inline function set_m12(m12:Float):Float return this[1]  = m12;
+    inline function set_m13(m13:Float):Float return this[2]  = m13;
+    inline function set_m14(m14:Float):Float return this[3]  = m14;
+    inline function set_m21(m21:Float):Float return this[4]  = m21;
+    inline function set_m22(m22:Float):Float return this[5]  = m22;
+    inline function set_m23(m23:Float):Float return this[6]  = m23;
+    inline function set_m24(m24:Float):Float return this[7]  = m24;
+    inline function set_m31(m31:Float):Float return this[8]  = m31;
+    inline function set_m32(m32:Float):Float return this[9]  = m32;
+    inline function set_m33(m33:Float):Float return this[10] = m33;
+    inline function set_m34(m34:Float):Float return this[11] = m34;
+    inline function set_m41(m41:Float):Float return this[12] = m41;
+    inline function set_m42(m42:Float):Float return this[13] = m42;
+    inline function set_m43(m43:Float):Float return this[14] = m43;
     inline function set_m44(m44:Float):Float return this[15] = m44;
 
     public inline function toString() return
@@ -541,7 +541,7 @@ abstract Matrix44(TZArray<Float32>) from TZArray<Float32> to TZArray<Float32> {
 extern class MathDevice {
     var FLOAT_MAX(default,never):Float;
 
-    function aabbAddPoints(aabb:AABB, points:Array<Vector3>, ?dst:AABB):AABB;
+    function aabbAddPoints(aabb:AABB, points:Array<Vector3>):AABB;
     function aabbBuildEmpty(?dst:AABB):AABB;
     function aabbBuild(minX:Float, minY:Float, minZ:Float, maxX:Float, maxY:Float, maxZ:Float, ?dst:AABB):AABB;
     function aabbCopy(aabb:AABB, ?dst:AABB):AABB;
